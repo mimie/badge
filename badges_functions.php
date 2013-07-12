@@ -126,11 +126,14 @@ function displayParticipantPerEvent($eventId){
    $name = $details["name"];
    $org = $details["org"];
 
+   if($name){
+
    $html = $html."<tr>"
          . "<td>$name</td>"
          . "<td>$org</td>"
          . "<td><input type='checkbox' name='contactIds[]' value='$contactId'></td>"
          . "<tr>";
+   }
  }
 
   $html = $html."</table>";
