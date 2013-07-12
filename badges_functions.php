@@ -101,4 +101,12 @@ function displayAllEvents(){
   
 }
 
+function formatDate($date){
+
+  $getDate = explode(" ",$date);
+  $date = $getDate[0];
+  $date = date("j M Y",strtotime($date));
+  return $date;
+}
+
 ?>
