@@ -1,6 +1,12 @@
 <?php
 include 'dbcon.php';
 
+/*[93] => Array
+        (
+            [title] => IIA-P 2013 Bowling Tournament
+            [start_date] => 2013-06-29 14:30:00
+        )
+**/
 function getAllEvents(){
 
   $sql = "SELECT id,title,start_date FROM civicrm_event";
@@ -27,6 +33,11 @@ function getAllEvents(){
 
 }
 
+/*[6017] => Array
+        (
+            [name] => Lady Lyn De Leon
+            [org] => Isla Lipana and Co./Pricewaterhouse Coopers
+        )*/
 function getAllContacts(){
 
   $sql = "SELECT id,display_name,organization_name FROM civicrm_contact";
@@ -62,6 +73,32 @@ function getEventParticipantId($eventId){
     $contactIds[] = $row['contact_id'];
  }
   return $contactIds;
+}
+
+function displayAllEvents(){
+
+  $allEvents = getAllEvents();
+
+  $html = "<table border='1'>"
+        . "<th>Event Title</th>"
+        . "<th>Event Date</th>"
+        . "<th>View Participant List</th>";
+
+  foreach($allEvents as $eventId=>$details){
+        $title = $details["title"];
+        $date = $details["start_date"];
+       
+    $html = $html."<tr>"
+          . "<td>$title</td>"
+          . "<td>$date</td>"
+          . "<td><a href='participants.php?eventId=$eventId'>Participants</a></td>"
+          . "</tr>";
+  }
+
+  $html = $html."</table>";
+
+  return $html;
+  
 }
 
 ?>
