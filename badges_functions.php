@@ -87,6 +87,7 @@ function displayAllEvents(){
   foreach($allEvents as $eventId=>$details){
         $title = $details["title"];
         $date = $details["start_date"];
+        $date = formatDate($date);
        
     $html = $html."<tr>"
           . "<td>$title</td>"
@@ -107,6 +108,35 @@ function formatDate($date){
   $date = $getDate[0];
   $date = date("j M Y",strtotime($date));
   return $date;
+}
+
+function displayParticipantPerEvent($eventId){
+
+  $allContacts = getAllContacts();
+  $participants = getEventParticipantId($eventId);
+
+  $html = "<table border='1'>"
+        . "<th>Participant Name</th>"
+        . "<th>Organization Name</th>"
+        . "<th>Print Badge</th>";
+
+  foreach($participants as $contactId){
+
+   $details = $allContacts[$contactId];
+   $name = $details["name"];
+   $org = $details["org"];
+
+   $html = $html."<tr>"
+         . "<td>$name</td>"
+         . "<td>$org</td>"
+         . "<td><input type='checkbox' name='contactIds[]' value='$contactId'></td>"
+         . "<tr>";
+ }
+
+  $html = $html."</table>";
+
+  return $html;
+
 }
 
 ?>
