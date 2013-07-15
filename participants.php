@@ -1,3 +1,9 @@
+<html>
+<head>
+<title>Participants</title>
+<link rel="stylesheet" type="text/css" href="design.css" />
+</head>
+<body>
 <?php
 
   include 'dbcon.php';
@@ -8,3 +14,5 @@
   echo $participants;
 
 ?>
+</body>
+</html>
