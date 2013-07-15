@@ -167,7 +167,7 @@ function searchEvent($eventName){
     $result = preg_match("/$eventName/",$title);
     if($result == 1){
       //$eventMatches[] = $event;
-        $eventMatches[] = $eventId;
+        $eventMatches[$eventId] = $details;
     }
   }
 
@@ -185,4 +185,31 @@ function searchEventForm(){
   return $htmlForm;
 }
 
+function displaySearchEvent(array $eventIds){
+
+  $allEvents = getAllEvents();
+
+  $html = "<table>"
+        . "<th>Event Title</th>"
+        . "<th>Event Date</th>"
+        . "<th>View Participant List</th>";
+
+  foreach($allEvents as $eventId=>$details){
+        $title = $details["title"];
+        $date = $details["start_date"];
+        $date = formatDate($date);
+       
+    $html = $html."<tr>"
+          . "<td>$title</td>"
+          . "<td>$date</td>"
+          . "<td class='center'><a href='participants.php?eventId=$eventId'>Participants</a></td>"
+          . "</tr>";
+  }
+
+  $html = $html."</table>";
+
+  return $html;
+  
+
+}
 ?>
