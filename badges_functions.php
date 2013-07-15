@@ -132,7 +132,7 @@ function displayParticipantPerEvent($eventId){
    $html = $html."<tr>"
          . "<td>$name</td>"
          . "<td>$org</td>"
-         . "<td><input type='checkbox' name='contactIds[]' value='$contactId'></td>"
+         . "<td class='center'><input type='checkbox' name='contactIds[]' value='$contactId'></td>"
          . "<tr>";
    }
  }
