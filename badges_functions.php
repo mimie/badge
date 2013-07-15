@@ -86,7 +86,7 @@ function displayAllEvents(){
 
   $allEvents = getAllEvents();
 
-  $html = "<table border='1'>"
+  $html = "<table>"
         . "<th>Event Title</th>"
         . "<th>Event Date</th>"
         . "<th>View Participant List</th>";
@@ -99,7 +99,7 @@ function displayAllEvents(){
     $html = $html."<tr>"
           . "<td>$title</td>"
           . "<td>$date</td>"
-          . "<td><a href='participants.php?eventId=$eventId'>Participants</a></td>"
+          . "<td class='center'><a href='participants.php?eventId=$eventId'>Participants</a></td>"
           . "</tr>";
   }
 
@@ -129,7 +129,7 @@ function displayParticipantPerEvent($eventId){
   $allContacts = getAllContacts();
   $participants = getEventParticipantId($eventId);
 
-  $html = "<table border='1'>"
+  $html = "<table>"
         . "<th>Participant Name</th>"
         . "<th>Organization Name</th>"
         . "<th>Print Badge</th>"
@@ -155,6 +155,33 @@ function displayParticipantPerEvent($eventId){
 
   return $html;
 
+}
+
+function searchEvent($eventName){
+
+  $allEvents = getAllEvents();
+  $eventMatches = array();
+
+  foreach($allEvents as $eventId){
+    $event = $eventId["title"];
+    $result = preg_match("/$eventName/",$event);
+    if($result == 1){
+      $eventMatches[] = $event;
+    }
+  }
+
+  return $eventMatches;
+}
+
+function searchEventForm(){
+
+  $htmlForm = "<form name='event' action='events.php' method='post'>"
+            . "<label for='eventTitle'><b>Event Title: </b></label>"
+            . "<input type='text' name='eventName'>"
+            . "<input type='submit' name='searchEvent' value='SEARCH'>"
+            . "</form>";
+
+  return $htmlForm;
 }
 
 ?>
