@@ -61,6 +61,10 @@ function getAllContacts(){
   return $contacts;
 }
 
+/*
+ *eventId is the id of a specific event
+ *@return all the contact id of a specific event
+ */
 function getEventParticipantId($eventId){
 
   $eventId = mysql_real_escape_string($eventId);
@@ -75,6 +79,9 @@ function getEventParticipantId($eventId){
   return $contactIds;
 }
 
+/*
+ *@return html table format of all events
+ */
 function displayAllEvents(){
 
   $allEvents = getAllEvents();
@@ -102,6 +109,10 @@ function displayAllEvents(){
   
 }
 
+/*
+ *date is string format of date in the form of 2013-10-23 14:00:00
+ *@return date in a format 23 Oct 2013
+ */
 function formatDate($date){
 
   $getDate = explode(" ",$date);
@@ -110,6 +121,9 @@ function formatDate($date){
   return $date;
 }
 
+/*
+ *display all participants in a specific event
+ */
 function displayParticipantPerEvent($eventId){
 
   $allContacts = getAllContacts();
