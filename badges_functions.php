@@ -118,7 +118,8 @@ function displayParticipantPerEvent($eventId){
   $html = "<table border='1'>"
         . "<th>Participant Name</th>"
         . "<th>Organization Name</th>"
-        . "<th>Print Badge</th>";
+        . "<th>Print Badge</th>"
+        . "<tr><td colspan='3' align='right'><input type='submit' name='print' value='PRINT BADGE'></td></tr>";
 
   foreach($participants as $contactId){
 
