@@ -9,6 +9,7 @@
   include 'dbcon.php';
   include 'badges_functions.php';
 
+  echo searchEventForm();
   echo displayAllEvents();
 
 ?>
