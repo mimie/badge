@@ -9,8 +9,10 @@ table{
 
 td{
   padding:3px;
+  border: 1px solid black;
 }
 
 th{
   padding:10px;
+  border: 1px solid black;
 }
