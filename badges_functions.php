@@ -162,11 +162,12 @@ function searchEvent($eventName){
   $allEvents = getAllEvents();
   $eventMatches = array();
 
-  foreach($allEvents as $eventId){
-    $event = $eventId["title"];
-    $result = preg_match("/$eventName/",$event);
+  foreach($allEvents as $eventId => $details){
+    $title = $details["title"];
+    $result = preg_match("/$eventName/",$title);
     if($result == 1){
-      $eventMatches[] = $event;
+      //$eventMatches[] = $event;
+        $eventMatches[] = $eventId;
     }
   }
 
