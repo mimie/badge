@@ -211,11 +211,17 @@ function displaySearchEvent(array $events){
  }
 
  else{
-   $html = "The event name does not exist.";
-   $html = $html.displayAllEvents();
+
+   $message = errorMessageDisplay("The event name does not exist.");
+   $html = $message."<br>".displayAllEvents();
    return $html;
  }
   
+}
 
+function errorMessageDisplay($message){
+
+  $html = "<table id='error'><tr><td>$message</td></tr></table>";
+  return $html;
 }
 ?>
