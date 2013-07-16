@@ -10,7 +10,18 @@
   include 'badges_functions.php';
 
   echo searchEventForm();
-  echo displayAllEvents();
+
+  if(!$_POST["searchEvent"]){
+     echo displayAllEvents();
+  }
+
+  else{
+     $eventName = $_POST["eventName"];
+     $eventMatches = searchEvent($eventName);
+     $searchResult = displaySearchEvent($eventMatches);
+    
+     echo $searchResult;
+  }
 
 ?>
 </body>
