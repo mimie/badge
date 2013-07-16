@@ -212,6 +212,7 @@ function displaySearchEvent(array $events){
 
  else{
    $html = "The event name does not exist.";
+   $html = $html.displayAllEvents();
    return $html;
  }
   
