@@ -9,7 +9,7 @@ include 'dbcon.php';
 **/
 function getAllEvents(){
 
-  $sql = "SELECT id,title,start_date FROM civicrm_event";
+  $sql = "SELECT id,title,start_date FROM civicrm_event ORDER BY start_date DESC";
   $result = mysql_query($sql) or die(mysql_error());
 
   $events = array();
@@ -221,7 +221,7 @@ function displaySearchEvent(array $events){
 
 function errorMessageDisplay($message){
 
-  $html = "<table id='error'><tr><td>$message</td></tr></table>";
+  $html = "<table class='error'><tr><td>$message</td></tr></table>";
   return $html;
 }
 ?>
