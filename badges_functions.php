@@ -157,6 +157,10 @@ function displayParticipantPerEvent($eventId){
 
 }
 
+/*
+ *eventName is the pattern of the string searched
+ *@return an array of events that matches the pattern string
+ */
 function searchEvent($eventName){
 
   $allEvents = getAllEvents();
@@ -174,6 +178,9 @@ function searchEvent($eventName){
   return $eventMatches;
 }
 
+/*
+ *@return html form for search event
+ */
 function searchEventForm(){
 
   $htmlForm = "<form name='event' action='events.php' method='post'>"
@@ -185,6 +192,9 @@ function searchEventForm(){
   return $htmlForm;
 }
 
+/*
+ *@return an html table for the result of searched events
+ */
 function displaySearchEvent(array $events){
   
  if($events){
@@ -219,6 +229,9 @@ function displaySearchEvent(array $events){
   
 }
 
+/*
+ *@return the error message
+ */
 function errorMessageDisplay($message){
 
   $html = "<table class='error'><tr><td>$message</td></tr></table>";
