@@ -86,7 +86,9 @@ function displayAllEvents(){
 
   $allEvents = getAllEvents();
 
-  $html = "<table>"
+  $html = "<h3>List of Events</h3>";
+
+  $html = $html."<table>"
         . "<th>Event Title</th>"
         . "<th>Event Date</th>"
         . "<th>View Participant List</th>";
@@ -129,7 +131,8 @@ function displayParticipantPerEvent($eventId){
   $allContacts = getAllContacts();
   $participants = getEventParticipantId($eventId);
 
-  $html = "<table>"
+  $html = "<h3>List of Participants</h3>";
+  $html = $html. "<table>"
         . "<th>Participant Name</th>"
         . "<th>Organization Name</th>"
         . "<th>Print Badge</th>"
@@ -237,4 +240,5 @@ function errorMessageDisplay($message){
   $html = "<table class='error'><tr><td>$message</td></tr></table>";
   return $html;
 }
+
 ?>
