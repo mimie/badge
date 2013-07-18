@@ -138,7 +138,7 @@ function displayParticipantPerEvent($eventId){
         . "<th>Organization Name</th>"
         . "<th>Email Address</th>"
         . "<th>Print Badge</th>"
-        . "<tr><td colspan='3' align='right'><input type='submit' name='print' value='PRINT BADGE'></td></tr>";
+        . "<tr><td colspan='4' align='right'><input type='submit' name='print' value='PRINT BADGE'></td></tr>";
 
   foreach($participants as $contactId){
 
@@ -260,8 +260,33 @@ function getAllEmails(){
     $ids[] = $contactId;
   }
     
-  $emails = array_combine($ids,$email);
-  return $emails;
+  $allEmails = array_combine($ids,$emails);
+  return $allEmails;
 }
 
+function searchParticipantPerEvent($eventId,$searchCriteria){
+
+  $searchCriteria = mysql_real_escape_string($searchCriteria);
+
+  $participants = array();
+  $details = array();
+
+  $sql = "SELECT display_name,organization_name,email FROM civicrm_participant cp, civicrm_email cem, civicrm_contact cc\n"
+       . "WHERE cp.event_id='$eventId'\n"
+       . "AND cp.contact_id = cc.id\n"
+       . "AND cem.contact_id = cc.id\n"
+       . "AND (cc.display_name LIKE '%{$searchCriteria}%' OR cem.email LIKE '%{$searchCriteria}%')";
+  $result = mysql_query($sql) or die(mysql_error());
+
+  while($row = mysql_fetch_assoc($result)){
+     $details["name"] = $row["display_name"];
+     $details["org"] = $row["organization_name"];
+     $details["email"] = $row["email"];
+    
+     $participants[] = $details;
+     unset($details);
+  }
+
+  return $participants;
+}
 ?>
