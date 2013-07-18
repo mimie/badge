@@ -320,4 +320,15 @@ function displaySearchParticipant(array $participantDetails){
   return $html;
 
 }
+
+function searchParticipantForm(){
+
+  $htmlForm = "<form name='searchParticipantForm' action='' method='post'>"
+            . "<label for='Email or Name'>Email or Name</label>"
+            . "<input type='text' name='searchCriteria'>"
+            . "<input type='submit' name='searchParticipant' value='SEARCH'>"
+            . "</form>";
+
+  return $htmlForm;
+}
 ?>
