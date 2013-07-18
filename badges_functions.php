@@ -130,11 +130,13 @@ function displayParticipantPerEvent($eventId){
 
   $allContacts = getAllContacts();
   $participants = getEventParticipantId($eventId);
+  $emails = getAllEmails();
 
   $html = "<h3>List of Participants</h3>";
   $html = $html. "<table>"
         . "<th>Participant Name</th>"
         . "<th>Organization Name</th>"
+        . "<th>Email Address</th>"
         . "<th>Print Badge</th>"
         . "<tr><td colspan='3' align='right'><input type='submit' name='print' value='PRINT BADGE'></td></tr>";
 
@@ -143,13 +145,14 @@ function displayParticipantPerEvent($eventId){
    $details = $allContacts[$contactId];
    $name = $details["name"];
    $org = $details["org"];
-   
+   $email = $emails[$contactId];
 
    if($name){
 
    $html = $html."<tr>"
          . "<td>$name</td>"
          . "<td>$org</td>"
+         . "<td>$email</td>"
          . "<td class='center'><input type='checkbox' name='contactIds[]' value='$contactId'></td>"
          . "<tr>";
    }
