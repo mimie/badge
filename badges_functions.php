@@ -143,6 +143,7 @@ function displayParticipantPerEvent($eventId){
    $details = $allContacts[$contactId];
    $name = $details["name"];
    $org = $details["org"];
+   
 
    if($name){
 
@@ -239,6 +240,25 @@ function errorMessageDisplay($message){
 
   $html = "<table class='error'><tr><td>$message</td></tr></table>";
   return $html;
+}
+
+function getAllEmails(){
+
+  $emails = array();
+  $ids = array();
+  $sql = "SELECT email,contact_id FROM civicrm_email";
+  $result = mysql_query($sql) or die(mysql_error());
+
+  while($row = mysql_fetch_array($result)){
+    $email = $row["email"];
+    $contactId = $row["contact_id"];
+   
+    $emails[] = $email;
+    $ids[] = $contactId;
+  }
+    
+  $emails = array_combine($ids,$email);
+  return $emails;
 }
 
 ?>
