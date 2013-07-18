@@ -271,7 +271,7 @@ function searchParticipantPerEvent($eventId,$searchCriteria){
   $participants = array();
   $details = array();
 
-  $sql = "SELECT display_name,organization_name,email FROM civicrm_participant cp, civicrm_email cem, civicrm_contact cc\n"
+  $sql = "SELECT display_name,organization_name,email,cc.id FROM civicrm_participant cp, civicrm_email cem, civicrm_contact cc\n"
        . "WHERE cp.event_id='$eventId'\n"
        . "AND cp.contact_id = cc.id\n"
        . "AND cem.contact_id = cc.id\n"
@@ -282,11 +282,42 @@ function searchParticipantPerEvent($eventId,$searchCriteria){
      $details["name"] = $row["display_name"];
      $details["org"] = $row["organization_name"];
      $details["email"] = $row["email"];
+     $details["id"] = $row["id"];
     
      $participants[] = $details;
      unset($details);
   }
 
   return $participants;
+}
+
+function displaySearchParticipant(array $participantDetails){
+
+  $html = "<h3>List of Participants</h3>";
+  $html = $html. "<table>"
+        . "<th>Participant Name</th>"
+        . "<th>Organization Name</th>"
+        . "<th>Email Address</th>"
+        . "<th>Print Badge</th>"
+        . "<tr><td colspan='4' align='right'><input type='submit' name='print' value='PRINT BADGE'></td></tr>";
+
+ foreach($participantDetails as $details){
+   $name = $details["name"];
+   $org = $details["org"];
+   $email = $details["email"];
+   $contactId = $details["contact_id"];
+
+   $html = $html."<tr>"
+         . "<td>$name</td>"
+         . "<td>$org</td>"
+         . "<td>$email</td>"
+         . "<td class='center'><input type='checkbox' name='contactIds[]' value='$contactId'></td>"
+         . "</tr>";
+ }
+  
+  $html = $html."</table>";
+
+  return $html;
+
 }
 ?>
