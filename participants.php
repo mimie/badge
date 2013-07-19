@@ -20,7 +20,7 @@ function checkedAll(formname)
     checked = false;
   }
 
- for (var i =0; i < values.elements.length; i++)
+ for (var i=0; i < values.elements.length; i++)
  {
    values.elements[i].checked=checked;
  }
