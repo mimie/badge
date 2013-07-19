@@ -324,11 +324,19 @@ function displaySearchParticipant(array $participantDetails){
 function searchParticipantForm(){
 
   $htmlForm = "<form name='searchParticipantForm' action='' method='post'>"
-            . "<label for='Email or Name'>Email or Name</label>"
+            . "<label for='Email or Name'>Email or Name: </label>"
             . "<input type='text' name='searchCriteria'>"
             . "<input type='submit' name='searchParticipant' value='SEARCH'>"
             . "</form>";
 
   return $htmlForm;
+}
+
+function resultSearchParticipant($eventId,$searchCriteria){
+
+   $participants = searchParticipantPerEvent($eventId,$searchCriteria);
+   $html = displaySearchParticipant($participants);
+
+   return $html;
 }
 ?>
