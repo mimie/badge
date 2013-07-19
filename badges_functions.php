@@ -1,24 +1,3 @@
-<script type="text/javascript">
-  var checked = false;
-  var formName = '';
-
-function checkedAll(formname){
-  var values = document.getElementById(formName);
-  
-  if(checked==false){
-    checked = true;
-  }
-
-  else{
-    checked = false;
-  }
-
-  for(var i=0; i < values.elements.length; i++ )
-  {
-    values.elements[i].checked=checked.
-  }
-}
-</script>
 <?php
 include 'dbcon.php';
 
@@ -159,7 +138,13 @@ function displayParticipantPerEvent($eventId){
         . "<th>Organization Name</th>"
         . "<th>Email Address</th>"
         . "<th>Print Badge</th>"
-        . "<tr><td colspan='4' align='right'><input type='submit' name='print' value='PRINT BADGE'></td></tr>";
+        . "<tr>"
+        . "<td colspan='4' align='right'>"
+        . "<form id='participants' method='post'>"
+        . "<input type='checkbox' name='checkAll' onclick='checkedAll(\"participants\");'>Check All"
+        . "<input type='submit' name='print' value='PRINT BADGE'>"
+        . "</td>"
+        . "</tr>";
 
   foreach($participants as $contactId){
 
@@ -179,7 +164,7 @@ function displayParticipantPerEvent($eventId){
    }
  }
 
-  $html = $html."</table>";
+  $html = $html."</form></table>";
 
   return $html;
 
