@@ -141,7 +141,7 @@ function displayParticipantPerEvent($eventId){
         . "<tr>"
         . "<td colspan='4' align='right'>"
         . "<form id='participants' method='post'>"
-        . "<input type='checkbox' name='checkAll' onclick='checkedAll(\"participants\");'>Check All"
+        . "<input type='checkbox' name='checkAll' onclick='checkedAll(\"participants\");'>Check All\t\t\t"
         . "<input type='submit' name='print' value='PRINT BADGE'>"
         . "</td>"
         . "</tr>";
@@ -305,7 +305,13 @@ function displaySearchParticipant(array $participantDetails){
         . "<th>Organization Name</th>"
         . "<th>Email Address</th>"
         . "<th>Print Badge</th>"
-        . "<tr><td colspan='4' align='right'><input type='submit' name='print' value='PRINT BADGE'></td></tr>";
+        . "<tr>"
+        . "<td colspan='4' align='right'>"
+        . "<form id='participants' method='post'>"
+        . "<input type='checkbox' name='checkAll' onclick='checkedAll(\"participants\");'>Check All\t\t\t"
+        . "<input type='submit' name='print' value='PRINT BADGE'>"
+        . "</td>"
+        . "</tr>";
 
  foreach($participantDetails as $details){
    $name = $details["name"];
@@ -321,7 +327,7 @@ function displaySearchParticipant(array $participantDetails){
          . "</tr>";
  }
   
-  $html = $html."</table>";
+  $html = $html."</form></table>";
 
   return $html;
 
