@@ -10,8 +10,19 @@
   include 'badges_functions.php';
 
   $eventId = $_GET['eventId'];
-  $participants = displayParticipantPerEvent($eventId);
-  echo $participants;
+  $participantForm = searchParticipantForm();
+  echo $participantForm;
+
+  if($_POST["searchParticipant"]){
+     $searchCriteria = $_POST["searchCriteria"];
+     $participants = resultSearchParticipant($eventId,$searchCriteria);
+     echo $participants;
+  }
+
+  else{
+     $participants = displayParticipantPerEvent($eventId);
+     echo $participants;
+  }
 
 ?>
 </body>
