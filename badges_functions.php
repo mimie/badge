@@ -1,3 +1,24 @@
+<script type="text/javascript">
+  var checked = false;
+  var formName = '';
+
+function checkedAll(formname){
+  var values = document.getElementById(formName);
+  
+  if(checked==false){
+    checked = true;
+  }
+
+  else{
+    checked = false;
+  }
+
+  for(var i=0; i < values.elements.length; i++ )
+  {
+    values.elements[i].checked=checked.
+  }
+}
+</script>
 <?php
 include 'dbcon.php';
 
