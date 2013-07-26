@@ -33,6 +33,17 @@ function getAllEvents(){
 
 }
 
+function getEventName($eventId){
+
+  $sql = "SELECT title FROM civicrm_event WHERE id = '$eventId'";
+  $result = mysql_query($sql) or die(mysql_error());
+  $row = mysql_fetch_assoc($result);
+  $eventName = $row["title"];
+
+  return $eventName;
+  
+}
+
 /*[6017] => Array
         (
             [name] => Lady Lyn De Leon
@@ -132,7 +143,9 @@ function displayParticipantPerEvent($eventId){
   $participants = getEventParticipantId($eventId);
   $emails = getAllEmails();
 
-  $html = "<h3>List of Participants</h3>";
+  $eventName = getEventName($eventId);
+
+  $html = "<h3>List of Participants for ".$eventName."</h3>";
   $html = $html. "<table>"
         . "<th>Participant Name</th>"
         . "<th>Organization Name</th>"
