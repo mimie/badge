@@ -44,6 +44,17 @@ function getEventName($eventId){
   
 }
 
+function getEventDate($eventId){
+
+  $sql = "SELECT start_date FROM civicrm_event WHERE id = '$eventId'";
+  $result = mysql_query($sql) or die(mysql_error());
+  $row = mysql_fetch_assoc($result);
+  $eventDate = $row["start_date"];
+
+  return $eventDate;
+
+}
+
 /*[6017] => Array
         (
             [name] => Lady Lyn De Leon
