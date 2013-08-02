@@ -375,4 +375,80 @@ function resultSearchParticipant($eventId,$searchCriteria){
 
    return $html;
 }
+
+function getParticipantDetails($contactId){
+
+  $participant = array();
+  $sql = "SELECT display_name, organization_name FROM civicrm_contact WHERE id = '$contactId'";
+  $result = mysql_query($sql) or die(mysql_error());
+  $row = mysql_fetch_assoc($result);
+  $participant["name"] = $row["display_name"];
+  $participant["org"] = $row["organization_name"];
+
+  return $participant;
+}
+
+function htmlBadge($eventId,array $participant,array $properties){
+
+   $badgeHeight = $properties["bHeight"];
+   $badgeWidth = $properties["bWidth"];
+   $imgHeight = $properties["imgHeight"];
+   $imgWidth = $properties["imgWidth"];
+   $titleSize = $properties["titleSize"];
+   $nameSize = $properties["nameSize"];
+   $orgSize = $properties["orgSize"];
+   $dateSize = $properties["dateSize"];
+
+   $eventName = getEventName($eventId);
+   $eventDate = getEventDate($eventId);
+   $eventDate = formatDate($eventDate);
+
+   $name = $participant["name"];
+   $orgName = $participant["org"];
+
+   $htmlBadge = "<html>"
+              . "<head>"
+              . "<style>" 
+              . "#badge{"
+              . "border:1px dashed black;"
+              . "padding:2px;"
+              . "width:".$badgeWidth.";"
+              . "height:".$badgeHeight.";"
+              . "}"
+              . "table{"
+              . "width:".$badgeWidth.";"
+              . "height:".$badgeHeight.";"
+              . "}"
+              . "</style>"
+              . "</head>";
+
+    $htmlBadge = $htmlBadge."<body>"
+               . "<div id = 'badge'>"
+               . "<table>"
+               . "<tr>"
+               . "<td align='center' width='".$imgWidth."' height='".$imgHeight."'>"
+               . "<img src='iiap_logo.png' width='".$imgWidth."' height='".$imgHeight."'></td>"
+               . "<td align='left' height='".$imgHeight."' cellpadding='3px'>"
+               . "<font size='".$titleSize."'><h3>".$eventName."</h3></td>"
+               . "</tr>";
+
+    $htmlBadge = $htmlBadge."<tr>"
+               . "<td colspan='2' align='center'>"
+               . "<b><font size='".$nameSize."'>".$name."</b></br></font>"
+               . "<font size='".$orgSize."'>".$orgName."</font></td>"
+               . "</tr>";
+  
+    $htmlBadge = $htmlBadge."<tr>"
+               . "<td colspan=2 align='right'>"
+               . "<font size='".$dateSize."'>"
+               . $eventDate . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>"
+               . "</tr>";
+
+    $htmlBadge = $htmlBadge."</table>"
+               . "</div>"
+               . "</body>"
+               . "</html>";
+
+   return $htmlBadge;
+}
 ?>
