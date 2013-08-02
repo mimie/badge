@@ -321,9 +321,11 @@ function searchParticipantPerEvent($eventId,$searchCriteria){
   return $participants;
 }
 
-function displaySearchParticipant(array $participantDetails){
+function displaySearchParticipant(array $participantDetails,$eventId){
 
-  $html = "<h3>List of Participants</h3>";
+  $eventName = getEventName($eventId);
+
+  $html = "<h3>List of Participants for ".$eventName."</h3>";
   $html = $html. "<table>"
         . "<th>Participant Name</th>"
         . "<th>Organization Name</th>"
@@ -341,7 +343,7 @@ function displaySearchParticipant(array $participantDetails){
    $name = $details["name"];
    $org = $details["org"];
    $email = $details["email"];
-   $contactId = $details["contact_id"];
+   $contactId = $details["id"];
 
    $html = $html."<tr>"
          . "<td>$name</td>"
@@ -371,7 +373,7 @@ function searchParticipantForm(){
 function resultSearchParticipant($eventId,$searchCriteria){
 
    $participants = searchParticipantPerEvent($eventId,$searchCriteria);
-   $html = displaySearchParticipant($participants);
+   $html = displaySearchParticipant($participants,$eventId);
 
    return $html;
 }

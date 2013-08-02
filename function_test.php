@@ -24,7 +24,7 @@
    echo var_dump($participants);
    echo "</pre>";
 
-   $result = displaySearchParticipant($participants);
+   $result = displaySearchParticipant($participants,"43");
    echo $result;
 
    $searchParticipantForm = searchParticipantForm();
