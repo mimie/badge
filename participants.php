@@ -26,8 +26,23 @@ function checkedAll(formname)
  }
 
 }
+
+function badgeProperties(action)
+{
+    if(action){
+        customize = document.getElementById("customize").value;
+        if(customize == action.value){
+            document.getElementById("badgeForm").style.display = "block";
+        }
+        else{
+            document.getElementById("badgeForm").style.display = "none";
+        }
+    }
+    else{
+        document.getElementById("badgeForm").style.display = "none";
+    }
+}
 </script>
-</head>
 <body>
 <?php
 
