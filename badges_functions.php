@@ -194,6 +194,55 @@ function displayParticipantPerEvent($eventId){
 
 }
 
+function badgePropertiesForm(){
+
+ $html = "<select id='properties' onchange='badgeProperties(this);'>"
+       . "<option value='select'>Select badge properties</option>"
+       . "<option value='none' disabled>--------</option>"
+       . "<option value='default'>default</option>"
+       . "<option id='customize' value='customize'>customize</option>"
+       . "</select>";
+
+
+ $html = $html. "<div id='badgeForm' style='display:none;'>"
+       . "<table>"
+       . "<tr>"
+       . "<td align='right'>Badge Width:</td>"
+       . "<td align='left'><input type='text' name='badgeWidth'></td>"
+       . "</tr>"
+       . "<tr>"
+       . "<td align='right'>Badge Height:</td>"
+       . "<td align='left'><input type='text' name='badgeHeight'></td></tr>"
+       . "<tr>"
+       . "<td align='right'>Logo Width:</td>"
+       . "<td align='left'><input type='text' name='logoWidth'></td>"
+       . "</tr>"
+       . "<tr>"
+       . "<td align='right'>Logo Height:</td>"
+       . "<td align='left'><input type='text' name='logoHeight'></td>"
+       . "</tr>"
+       . "<tr>"
+       . "<td align='right'>Event Name Font Size:</td>"
+       . "<td align='left'><input type='text' name='eventSize'></td>"
+       . "</tr>"
+       . "<tr>"
+       . "<td align='right'>Participant Name Font Size:</td>"
+       . "<td align='left'><input type='text' name='participantSize'></td>"
+       . "</tr>"
+       . "<tr>"
+       . "<td align='right'>Organization Name Font Size:</td>"
+       . "<td align='left'><input type='text' name='orgSize'></td>"
+       . "</tr>"
+       . "<tr>"
+       . "<td align='right'>Date Font Size:</td>"
+       . "<td align='left'><input type='text' name='dateSize'></td>"
+       . "</tr>"
+       . "</table>";
+
+  return $html;
+
+}
+
 /*
  *eventName is the pattern of the string searched
  *@return an array of events that matches the pattern string
