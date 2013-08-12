@@ -155,6 +155,7 @@ function displayParticipantPerEvent($eventId){
   $emails = getAllEmails();
 
   $eventName = getEventName($eventId);
+  $badgeProperties = badgePropertiesForm();
 
   $html = "<h3>List of Participants for ".$eventName."</h3>";
   $html = $html. "<table>"
@@ -163,8 +164,9 @@ function displayParticipantPerEvent($eventId){
         . "<th>Email Address</th>"
         . "<th>Print Badge</th>"
         . "<tr>"
-        . "<td colspan='4' align='right'>"
+        . "<td colspan='4' align='center'>"
         . "<form id='participants' method='post'>"
+        . "$badgeProperties"
         . "<input type='checkbox' name='checkAll' onclick='checkedAll(\"participants\");'>Check All\t\t\t"
         . "<input type='submit' name='print' value='PRINT BADGE'>"
         . "</td>"
@@ -199,9 +201,9 @@ function badgePropertiesForm(){
  $html = "<select id='properties' onchange='badgeProperties(this);'>"
        . "<option value='select'>Select badge properties</option>"
        . "<option value='none' disabled>--------</option>"
-       . "<option value='default'>default</option>"
-       . "<option id='customize' value='customize'>customize</option>"
-       . "</select>";
+       . "<option value='default'>Default Badge</option>"
+       . "<option id='customize' value='customize'>Customize Badge</option>"
+       . "</select><br><br>";
 
 
  $html = $html. "<div id='badgeForm' style='display:none;'>"
@@ -237,7 +239,7 @@ function badgePropertiesForm(){
        . "<td align='right'>Date Font Size:</td>"
        . "<td align='left'><input type='text' name='dateSize'></td>"
        . "</tr>"
-       . "</table>";
+       . "</table></div><br><br>";
 
   return $html;
 
