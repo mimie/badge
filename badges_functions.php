@@ -198,7 +198,7 @@ function displayParticipantPerEvent($eventId){
 
 function badgePropertiesForm(){
 
- $html = "<select id='properties' onchange='badgeProperties(this);'>"
+ $html = "<select name='badgeType' id='properties' onchange='badgeProperties(this);'>"
        . "<option value='select'>Select badge properties</option>"
        . "<option value='none' disabled>--------</option>"
        . "<option value='default'>Default Badge</option>"
