@@ -37,14 +37,14 @@
    
    $participant1 = getParticipantDetails('3306');
    $participant2 = getParticipantDetails('3276');
-   $properties["bHeight"] = '350px';
-   $properties["bWidth"] = '450px'; 
-   $properties["imgHeight"] = '111';
-   $properties["imgWidth"] = '100';
+   $properties["bHeight"] = '205px';
+   $properties["bWidth"] = '329px'; 
+   $properties["imgHeight"] = '77';
+   $properties["imgWidth"] = '73';
    $properties["titleSize"] = '4';
-   $properties["nameSize"] = '7';
-   $properties["orgSize"] = '5';
-   $properties["dateSize"] = '5';
+   $properties["nameSize"] = '5';
+   $properties["orgSize"] = '4';
+   $properties["dateSize"] = '4';
 
    $htmlBadge = htmlBadge('139',$participant,$properties);
    var_dump($htmlBadge);
