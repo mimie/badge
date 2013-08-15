@@ -42,6 +42,24 @@ function badgeProperties(action)
         document.getElementById("badgeForm").style.display = "none";
     }
 }
+
+$("#dialog").dialog({
+   autoOpen: false,
+   modal: true,
+   buttons : {
+        "Confirm" : function() {
+            alert("You have confirmed!");            
+        },
+        "Cancel" : function() {
+          $(this).dialog("close");
+        }
+      }
+    });
+
+$("#callConfirm").on("click", function(e) {
+    e.preventDefault();
+    $("#dialog").dialog("open");
+});
 </script>
 <body>
 <?php
@@ -49,17 +67,19 @@ function badgeProperties(action)
   include 'dbcon.php';
   include 'badges_functions.php';
 
-  $eventId = $_GET['eventId'];
+  if(isset($_GET['eventId'])){
+    $eventId = $_GET['eventId'];
+  }
   $participantForm = searchParticipantForm();
   echo $participantForm;
 
-  if($_POST["searchParticipant"]){
+  if(isset($_POST["searchParticipant"])){
      $searchCriteria = $_POST["searchCriteria"];
      $participants = resultSearchParticipant($eventId,$searchCriteria);
      echo $participants;
   }
 
-  elseif($_POST["badgeType"] == 'default'){
+  elseif(isset($_POST["badgeType"]) && $_POST["badgeType"] == 'default'){
     session_start();
     $contactIds = $_POST["contactIds"];
     $contactIds = json_encode($contactIds);
@@ -73,8 +93,10 @@ function badgeProperties(action)
 
   else{
 
-  $participants = displayParticipantPerEvent($eventId);
-  echo $participants;
+     if(isset($_GET['eventId'])){
+        $participants = displayParticipantPerEvent($eventId);
+        echo $participants;
+     }
 
   }
  
