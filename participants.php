@@ -66,11 +66,12 @@ function badgeProperties(action)
   elseif(isset($_POST["badgeType"]) && $_POST["badgeType"] == 'default'){
     session_start();
     $contactIds = $_POST["contactIds"];
+    $totalSelected = count($contactIds);
     $contactIds = json_encode($contactIds);
     $contactIds = urlencode($contactIds);
 
 
-    echo "<a href='viewBadge.php?ids=".$contactIds."&eventId=".$eventId."' target='_blank'>View Badge</a>";
+    echo "<a href='viewBadge.php?ids=".$contactIds."&eventId=".$eventId."' target='_blank'><button type='button'>View Badge of ".$totalSelected." Participant/s</button></a>";
 
      echo $participants;
   }
