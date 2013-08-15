@@ -43,23 +43,6 @@ function badgeProperties(action)
     }
 }
 
-$("#dialog").dialog({
-   autoOpen: false,
-   modal: true,
-   buttons : {
-        "Confirm" : function() {
-            alert("You have confirmed!");            
-        },
-        "Cancel" : function() {
-          $(this).dialog("close");
-        }
-      }
-    });
-
-$("#callConfirm").on("click", function(e) {
-    e.preventDefault();
-    $("#dialog").dialog("open");
-});
 </script>
 <body>
 <?php
@@ -89,6 +72,14 @@ $("#callConfirm").on("click", function(e) {
     echo "<a href='viewBadge.php?ids=".$contactIds."&eventId=".$eventId."' target='_blank'>View Badge</a>";
 
     
+  }
+
+  elseif(isset($_POST["badgeType"]) && $_POST["badgeType"] == 'select'){
+
+  echo "<script type='text/javascript'>";
+  echo "alert('Please select badge properties');"; 
+  echo "document.location.href = 'participants.php?eventId=${eventId}'";
+  echo "</script>";
   }
 
   else{
