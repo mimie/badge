@@ -62,9 +62,10 @@ function badgeProperties(action)
   elseif($_POST["badgeType"] == 'default'){
     session_start();
     $contactIds = $_POST["contactIds"];
-    $_SESSION["ids"] = $contactIds;
+    $contactIds = json_encode($contactIds);
+    $contactIds = urlencode($contactIds);
 
-    $properties = array();
+    /*$properties = array();
     $properties["bHeight"] = '205px';                                                                                                                                  
     $properties["bWidth"] = '329px';                                                                                                                                    
     $properties["imgHeight"] = '77';                                                                                                                                      
@@ -80,7 +81,11 @@ function badgeProperties(action)
 
       echo $htmlBadge;
       
-    }
+    }**/
+
+    echo "<a href='viewBadge.php?ids=".$contactIds."'>View Badge</a>";
+
+    
   }
 
   if(!isset($contactIds)){
