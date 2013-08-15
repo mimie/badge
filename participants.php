@@ -66,7 +66,7 @@ function badgeProperties(action)
     $contactIds = urlencode($contactIds);
 
 
-    echo "<a href='viewBadge.php?ids=".$contactIds."&eventId=".$eventId."'>View Badge</a>";
+    echo "<a href='viewBadge.php?ids=".$contactIds."&eventId=".$eventId."' target='_blank'>View Badge</a>";
 
     
   }
