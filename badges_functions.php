@@ -512,8 +512,8 @@ function generatePDF($html,$eventId){
   
    require_once("dompdf/dompdf_config.inc.php");
    $eventName = getEventName($eventId);
-   $date = new DateTime();
-   $date = $date->getTimestamp;
+   $date = time();
+//   $date = $date->getTimestamp;
    
  
    $fileName = $eventName."_".$date.".pdf";
