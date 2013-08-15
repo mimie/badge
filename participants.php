@@ -59,10 +59,37 @@ function badgeProperties(action)
      echo $participants;
   }
 
-  else{
-     $participants = displayParticipantPerEvent($eventId);
-     echo $participants;
+  elseif($_POST["badgeType"] == 'default'){
+    session_start();
+    $contactIds = $_POST["contactIds"];
+    $_SESSION["ids"] = $contactIds;
+
+    $properties = array();
+    $properties["bHeight"] = '205px';                                                                                                                                  
+    $properties["bWidth"] = '329px';                                                                                                                                    
+    $properties["imgHeight"] = '77';                                                                                                                                      
+    $properties["imgWidth"] = '73';                                                                                                                                 
+    $properties["titleSize"] = '4';                                                               
+    $properties["nameSize"] = '5';                                                                                                                                                    
+    $properties["orgSize"] = '4';                                                                                                                                              
+    $properties["dateSize"] = '4';
+
+    foreach($contactIds as $id){
+      $participantDetails = getParticipantDetails($id);
+      $htmlBadge = htmlBadge($eventId,$participantDetails,$properties);
+
+      echo $htmlBadge;
+      
+    }
   }
+
+  if(!isset($contactIds)){
+
+  $participants = displayParticipantPerEvent($eventId);
+  echo $participants;
+
+  }
+ 
 
 ?>
 </body>
