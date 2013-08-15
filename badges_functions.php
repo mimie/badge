@@ -485,7 +485,7 @@ function htmlBadge($eventId,array $participant,array $properties){
                . "<td align='center' width='".$imgWidth."' height='".$imgHeight."'>"
                . "<img src='iiap_logo.png' width='".$imgWidth."' height='".$imgHeight."'></td>"
                . "<td align='center' height='".$imgHeight."' cellpadding='3px'>"
-               . "<font size='".$titleSize."'><h3>".$eventName."</h3></td>"
+               . "<font size='".$titleSize."'>".$eventName."</td>"
                . "</tr>";
 
     $htmlBadge = $htmlBadge."<tr>"
