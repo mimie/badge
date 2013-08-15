@@ -168,7 +168,7 @@ function displayParticipantPerEvent($eventId){
         . "<form id='participants' method='post'>"
         . "$badgeProperties"
         . "<input type='checkbox' name='checkAll' onclick='checkedAll(\"participants\");'>Check All\t\t\t"
-        . "<input type='submit' name='print' value='PRINT BADGE'>"
+        . "<input type='submit' name='print' value='GENERATE BADGE'>"
         . "</td>"
         . "</tr>";
 
@@ -389,7 +389,7 @@ function displaySearchParticipant(array $participantDetails,$eventId){
         . "<form id='participants' method='post'>"
         . "$badgeProperties"
         . "<input type='checkbox' name='checkAll' onclick='checkedAll(\"participants\");'>Check All\t\t\t"
-        . "<input type='submit' name='print' value='PRINT BADGE'>"
+        . "<input type='submit' name='print' value='GENERATE BADGE'>"
         . "</td>"
         . "</tr>";
 
