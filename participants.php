@@ -71,7 +71,7 @@ function badgeProperties(action)
     
   }
 
-  if(!isset($contactIds)){
+  else{
 
   $participants = displayParticipantPerEvent($eventId);
   echo $participants;
