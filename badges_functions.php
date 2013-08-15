@@ -463,7 +463,7 @@ function htmlBadge($eventId,array $participant,array $properties){
               . "<head>"
               . "<style>" 
               . "#badge{"
-              . "border:1px dashed black;"
+              . "border:1px dashed #BDBDBD;"
               . "padding:2px;"
               . "width:".$badgeWidth.";"
               . "height:".$badgeHeight.";"
