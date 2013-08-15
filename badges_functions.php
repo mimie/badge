@@ -507,4 +507,23 @@ function htmlBadge($eventId,array $participant,array $properties){
 
    return $htmlBadge;
 }
+
+function generatePDF($html,$eventId){
+  
+   require_once("dompdf/dompdf_config.inc.php");
+   $eventName = getEventName($eventId);
+   $date = new DateTime();
+   $date = $date->getTimestamp;
+   
+ 
+   $fileName = $eventName."_".$date.".pdf";
+   $fileLocation = "pdf/".$fileName;
+ 
+   $dompdf = new DOMPDF();
+   $dompdf->load_html($html);
+   $dompdf->set_paper('Letter','portrait');
+ 
+   $dompdf->render();
+   file_put_contents($fileLocation, $dompdf->output( array("compress" => 0) ));
+}
 ?>
