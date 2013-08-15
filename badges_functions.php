@@ -375,6 +375,8 @@ function searchParticipantPerEvent($eventId,$searchCriteria){
 function displaySearchParticipant(array $participantDetails,$eventId){
 
   $eventName = getEventName($eventId);
+  $eventName = getEventName($eventId);
+  $badgeProperties = badgePropertiesForm();
 
   $html = "<h3>List of Participants for ".$eventName."</h3>";
   $html = $html. "<table>"
@@ -383,8 +385,9 @@ function displaySearchParticipant(array $participantDetails,$eventId){
         . "<th>Email Address</th>"
         . "<th>Print Badge</th>"
         . "<tr>"
-        . "<td colspan='4' align='right'>"
+        . "<td colspan='4' align='center'>"
         . "<form id='participants' method='post'>"
+        . "$badgeProperties"
         . "<input type='checkbox' name='checkAll' onclick='checkedAll(\"participants\");'>Check All\t\t\t"
         . "<input type='submit' name='print' value='PRINT BADGE'>"
         . "</td>"
