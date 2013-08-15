@@ -20,27 +20,31 @@
   $properties["orgSize"] = '4';                                                                                                                                              
   $properties["dateSize"] = '4';
 
-  echo "<table>";
+  $htmlBadge = "<table>";
   $indicator = 1;
 
   foreach($contactIds as $id){
 
     $participantDetails = getParticipantDetails($id);
-    $htmlBadge = htmlBadge($eventId,$participantDetails,$properties);
+    $perBadge = htmlBadge($eventId,$participantDetails,$properties);
     //echo $htmlBadge;
 
     if($indicator == 1){
-      echo "<tr>";
-      echo "<td>$htmlBadge<td>";
+      $htmlBadge = $htmlBadge."<tr>"
+                 . "<td>$perBadge</td>";
       $indicator = $indicator + 1;
     }
 
     elseif($indicator == 2){
-      echo "<td>$htmlBadge</td></tr>"; 
+      $htmlBadge = $htmlBadge."<td>$perBadge</td></tr>"; 
       $indicator = 1;
     }
     
   }
 
- echo "</table>";
+ $htmlBadge = $htmlBadge."</table>";
+
+ echo $htmlBadge;
+
+ //generatePDF($htmlBadge,$eventId);
 ?>
