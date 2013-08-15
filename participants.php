@@ -52,6 +52,7 @@ function badgeProperties(action)
 
   if(isset($_GET['eventId'])){
     $eventId = $_GET['eventId'];
+    $participants = displayParticipantPerEvent($eventId);
   }
   $participantForm = searchParticipantForm();
   echo $participantForm;
@@ -71,7 +72,7 @@ function badgeProperties(action)
 
     echo "<a href='viewBadge.php?ids=".$contactIds."&eventId=".$eventId."' target='_blank'>View Badge</a>";
 
-    
+     echo $participants;
   }
 
   elseif(isset($_POST["badgeType"]) && $_POST["badgeType"] == 'select'){
@@ -85,7 +86,6 @@ function badgeProperties(action)
   else{
 
      if(isset($_GET['eventId'])){
-        $participants = displayParticipantPerEvent($eventId);
         echo $participants;
      }
 
