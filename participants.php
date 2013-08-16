@@ -47,6 +47,8 @@ function badgeProperties(action)
 <body>
 <?php
 
+  echo "<div align='center'>";
+
   include 'dbcon.php';
   include 'badges_functions.php';
 
@@ -91,6 +93,8 @@ function badgeProperties(action)
      }
 
   }
+
+  echo "</div>";
  
 
 ?>
