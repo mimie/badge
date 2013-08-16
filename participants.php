@@ -11,7 +11,7 @@
 	
 #header li {
   display: inline;
-  border: 2px solid #0489B1;
+  <!--border: 2px solid #0489B1;-->
   border-bottom-width: 0;
   margin: 0 0.5em 0 0;
 }
@@ -23,6 +23,11 @@
 #header #selected {
   padding-bottom: 1px;
   background: #0489B1;
+}
+
+#header #recent {
+  padding-bottom: 1px;
+  background-color: #31B404; 
 }
 
 a:link {
@@ -113,9 +118,15 @@ function badgeProperties(action)
 
 </script>
 <body>
+<?php
+  $id = $_GET['eventId'];
+?>
 <div id="header">
 <ul>
    <li id="selected" onmouseover="this.style.background='#31B404';" onmouseout="this.style.background='#0489B1';"><a href="events.php"><b>LIST OF EVENTS<b></a></li>
+<?php
+   echo "<li id='recent'><a href='participants.php?eventId=".$id."'>PARTICIPANTS</a></li>";
+?>
 </ul>
 </div>
 <?php
