@@ -33,6 +33,42 @@ a:link {
 a:visited{
   color:white;
 }
+
+button {
+  background: linear-gradient(to bottom, rgb(97,196,25) 0%,rgb(149,226,90) 100%);
+  margin: 0 auto;
+  padding: 10px 20px 10px 20px;
+	border-radius: 5px;
+  border: 1px solid #c4c4c4;
+  box-shadow: 0px 6px 0px 0px rgba(88, 163, 31, 1),
+    0px 5px 12px 0px rgba(0, 0, 0, 0.6),
+    inset 0px 0px 10px -5px rgba(0, 0, 0, 1);
+  transition: all 100ms linear;
+  touch-callout: none;
+  user-select: none;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  
+  font-family: Arial Black, Gadget, sans-serif;
+  font-size: 15px;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+button > span {
+  display: block;
+	-webkit-transform: skew(5deg, 0deg);
+}
+
+button:active {
+	top: 4px;
+  box-shadow: 0px 2px 0px 0px rgba(88, 163, 31, 1),
+    0px 5px 5px 0px rgba(0, 0, 0, 0.6),
+    inset 0px 0px 10px -5px rgba(0, 0, 0, 1);
+}
+
 </style>
 <script type="text/javascript">
   var checked=false;
@@ -108,11 +144,9 @@ function badgeProperties(action)
     $totalSelected = count($contactIds);
     $contactIds = json_encode($contactIds);
     $contactIds = urlencode($contactIds);
-
-
+    
     echo "<a href='viewBadge.php?ids=".$contactIds."&eventId=".$eventId."' target='_blank'><button type='button'>View Badge of ".$totalSelected." Participant/s</button></a>";
-
-     echo $participants;
+    echo $participants;
   }
 
   elseif(isset($_POST["badgeType"]) && $_POST["badgeType"] == 'select'){
