@@ -2,6 +2,30 @@
 <head>
 <title>Participants</title>
 <link rel="stylesheet" type="text/css" href="design.css" />
+<style>
+#header ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+	
+#header li {
+  display: inline;
+  border: 1px solid;
+  border-bottom-width: 0;
+  margin: 0 0.5em 0 0;
+}
+	
+#header li a {
+  padding: 0 1em;
+}
+	
+#header #selected {
+  padding-bottom: 1px;
+  background: white;
+}
+
+</style>
 <script type="text/javascript">
   var checked=false;
   var formname='';
@@ -45,9 +69,14 @@ function badgeProperties(action)
 
 </script>
 <body>
+<div id="header">
+<ul>
+   <li id="selected"><a href="events.php">List of Events</a></li>
+</ul>
+</div>
 <?php
 
-  echo "<div align='center'>";
+  echo "<div align='center' style='border: 1px solid; padding:10px;'>";
 
   include 'dbcon.php';
   include 'badges_functions.php';
