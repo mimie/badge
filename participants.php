@@ -25,6 +25,9 @@
   background: white;
 }
 
+a:link {
+  text-decoration:none;
+}
 </style>
 <script type="text/javascript">
   var checked=false;
@@ -76,7 +79,7 @@ function badgeProperties(action)
 </div>
 <?php
 
-  echo "<div align='center' style='border: 1px solid; padding:10px;'>";
+  echo "<div align='center' style='border: 1px solid; padding:30px;'>";
 
   include 'dbcon.php';
   include 'badges_functions.php';
