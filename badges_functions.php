@@ -205,16 +205,23 @@ function badgePropertiesForm(){
        . "<option id='customize' value='customize'>Customize Badge</option>"
        . "</select><br><br>";
 
+ $options = propertiesOption();
+
 
  $html = $html. "<div id='badgeForm' style='display:none;'>"
        . "<table>"
        . "<tr>"
-       . "<td align='right'>Badge Width:</td>"
-       . "<td align='left'><input type='text' name='badgeWidth'></td>"
+       . "<td align='right'>Badge Width (cm):</td>"
+       . "<td align='left'><select name='badgeWidth'>"
+       . "$options"
+       . "</select>"
+       . "</td>"
        . "</tr>"
        . "<tr>"
-       . "<td align='right'>Badge Height:</td>"
-       . "<td align='left'><input type='text' name='badgeHeight'></td></tr>"
+       . "<td align='right'>Badge Height (cm):</td>"
+       . "<td align='left'><select name='badgeHeight'>"
+       . "$options</select>"
+       . "</td></tr>"
        . "<tr>"
        . "<td align='right'>Logo Width:</td>"
        . "<td align='left'><input type='text' name='logoWidth'></td>"
@@ -243,6 +250,17 @@ function badgePropertiesForm(){
 
   return $html;
 
+}
+
+function propertiesOption(){
+
+  $html = "";
+
+  for($i=5;$i<=30;$i++){
+    $html = $html."<option value=".$i.">".$i."</option>";
+  }
+
+  return $html;
 }
 
 /*
