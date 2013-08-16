@@ -168,7 +168,7 @@ function displayParticipantPerEvent($eventId){
         . "<form id='participants' method='post'>"
         . "$badgeProperties"
         . "<input type='checkbox' name='checkAll' onclick='checkedAll(\"participants\");'>Check All\t\t\t"
-        . "<input type='submit' name='print' value='GENERATE BADGE'>"
+        . "<input class='blue' type='submit' name='print' value='GENERATE BADGE'>"
         . "</td>"
         . "</tr>";
 
@@ -292,7 +292,7 @@ function searchEventForm(){
   $htmlForm = "<form name='event' action='events.php' method='post'>"
             . "<label for='eventTitle'><b>Event Title: </b></label>"
             . "<input type='text' name='eventName'>"
-            . "<input type='submit' name='searchEvent' value='SEARCH'>"
+            . "<input class='blue' type='submit' name='searchEvent' value='SEARCH'>"
             . "</form>";
 
   return $htmlForm;
@@ -407,7 +407,7 @@ function displaySearchParticipant(array $participantDetails,$eventId){
         . "<form id='participants' method='post'>"
         . "$badgeProperties"
         . "<input type='checkbox' name='checkAll' onclick='checkedAll(\"participants\");'>Check All\t\t\t"
-        . "<input type='submit' name='print' value='GENERATE BADGE'>"
+        . "<input class='blue' type='submit' name='print' value='GENERATE BADGE'>"
         . "</td>"
         . "</tr>";
 
@@ -436,7 +436,7 @@ function searchParticipantForm(){
   $htmlForm = "<form name='searchParticipantForm' action='' method='post'>"
             . "<label for='Email or Name'>Email or Name: </label>"
             . "<input type='text' name='searchCriteria'>"
-            . "<input type='submit' name='searchParticipant' value='SEARCH'>"
+            . "<input class='blue' type='submit' name='searchParticipant' value='SEARCH'>"
             . "</form>";
 
   return $htmlForm;
