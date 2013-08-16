@@ -9,6 +9,8 @@
   include 'dbcon.php';
   include 'badges_functions.php';
 
+  echo "<div align='center'>";
+
   echo searchEventForm();
 
   if(!$_POST["searchEvent"]){
@@ -22,6 +24,8 @@
     
      echo $searchResult;
   }
+
+  echo "</div>";
 
 ?>
 </body>
