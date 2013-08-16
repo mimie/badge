@@ -11,7 +11,7 @@
 	
 #header li {
   display: inline;
-  border: 1px solid;
+  border: 2px solid #0489B1;
   border-bottom-width: 0;
   margin: 0 0.5em 0 0;
 }
@@ -22,11 +22,16 @@
 	
 #header #selected {
   padding-bottom: 1px;
-  background: white;
+  background: #0489B1;
 }
 
 a:link {
   text-decoration:none;
+  color:white;
+}
+
+a:visited{
+  color:white;
 }
 </style>
 <script type="text/javascript">
@@ -74,12 +79,12 @@ function badgeProperties(action)
 <body>
 <div id="header">
 <ul>
-   <li id="selected"><a href="events.php">List of Events</a></li>
+   <li id="selected" onmouseover="this.style.background='#31B404';" onmouseout="this.style.background='#0489B1';"><a href="events.php"><b>LIST OF EVENTS<b></a></li>
 </ul>
 </div>
 <?php
 
-  echo "<div align='center' style='border: 1px solid; padding:30px;'>";
+  echo "<div align='center' style='border: 10px solid #0489B1; padding:15px;'>";
 
   include 'dbcon.php';
   include 'badges_functions.php';
