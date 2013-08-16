@@ -1,6 +1,6 @@
 table{
   border-collapse:collapse;
-  border: 1px solid black;
+  border: 1px solid #58D3F7;
 }
 
 .center{
@@ -9,10 +9,12 @@ table{
 
 td{
   padding:3px;
-  border: 1px solid black;
+  border: 1px solid #58D3F7;
 }
 
 th{
   padding:10px;
-  border: 1px solid black;
+  border: 1px solid #58D3F7;
 }
+
+
