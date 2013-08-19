@@ -206,6 +206,7 @@ function badgePropertiesForm(){
        . "</select><br><br>";
 
  $options = propertiesOption();
+ $fontSizeOptions = fontSizeOption();
 
 
  $html = $html. "<div id='badgeForm' style='display:none;'>"
@@ -236,11 +237,19 @@ function badgePropertiesForm(){
        . "</tr>"
        . "<tr>"
        . "<td align='right'>Event Title Font Size:</td>"
-       . "<td align='left'><input type='text' name='eventSize'></td>"
+       . "<td align='left'><select name='eventSize'>"
+       . "<option value=default>default</option>"
+       . "$fontSizeOptions"
+       . "</select>"
+       . "</td>"
        . "</tr>"
        . "<tr>"
        . "<td align='right'>Participant Name Font Size:</td>"
-       . "<td align='left'><input type='text' name='participantSize'></td>"
+       . "<td align='left'><select name='participantSize'>"
+       . "<option value='default'>default</option>"
+       . "$fontSizeOptions"
+       . "</select>"
+       . "</td>"
        . "</tr>"
        . "<tr>"
        . "<td align='right'>Organization Name Font Size:</td>"
