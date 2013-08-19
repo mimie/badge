@@ -560,14 +560,20 @@ function htmlBadge($eventId,array $participant,array $properties){
    return $htmlBadge;
 }
 
+/*
+ *@return conversion of centimeters to Pixels
+ */
+function cmToPixel($size){
+
+  $pixels = $size*37.795275591;
+  return $pixels;
+}
+
 function generatePDF($html,$eventId){
   
    require_once("dompdf/dompdf_config.inc.php");
    $eventName = getEventName($eventId);
    $date = time();
-//   $date = $date->getTimestamp;
-   
- 
    $fileName = $eventName."_".$date.".pdf";
    $fileLocation = "pdf/".$fileName;
  
