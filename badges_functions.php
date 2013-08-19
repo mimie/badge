@@ -256,6 +256,9 @@ function badgePropertiesForm(){
 
 }
 
+/*
+ *@return html options for height and width dimensions
+ */
 function propertiesOption(){
 
   $html = "";
@@ -265,6 +268,22 @@ function propertiesOption(){
   }
 
   return $html;
+}
+
+
+/*
+ *@return html option for font size of the details of the badges
+ */
+function fontSizeOption(){
+
+  $html = "";
+
+  for($i=6;$i<=96;$i++){
+    $html = $html."<option value=".$i."pt>".$i."</option>";
+  }
+
+  return $html;
+
 }
 
 /*
