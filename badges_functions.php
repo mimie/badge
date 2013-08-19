@@ -203,7 +203,7 @@ function badgePropertiesForm(){
        . "<option value='none' disabled>--------</option>"
        . "<option value='default'>Default Badge</option>"
        . "<option id='customize' value='customize'>Customize Badge</option>"
-       . "</select><br><br>";
+       . "</select><br>";
 
  //$options = propertiesOption();
  $fontSizeOptions = fontSizeOption();
@@ -261,7 +261,7 @@ function badgePropertiesForm(){
        . "</select>"
        . "</td>"
        . "</tr>"
-       . "</table></div><br><br>";
+       . "</table></div>";
 
   return $html;
 
