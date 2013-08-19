@@ -149,36 +149,29 @@ function badgeProperties(action)
      echo $participants;
   }
 
-  elseif(isset($_POST["badgeType"]) && $_POST["badgeType"] == 'default'){
-    session_start();
+  elseif(isset($_POST["badgeType"])){
     $contactIds = $_POST["contactIds"];
     $totalSelected = count($contactIds);
     $contactIds = json_encode($contactIds);
     $contactIds = urlencode($contactIds);
     
-    echo "<a href='viewBadge.php?ids=".$contactIds."&eventId=".$eventId."' target='_blank'><button type='button'>View Badge of ".$totalSelected." Participant/s</button></a>";
-    echo $participants;
+      if($_POST["badgeType"] == 'default'){
+        echo "<a href='viewBadge.php?ids=".$contactIds."&eventId=".$eventId."' target='_blank'><button type='button'>View Badge of ".$totalSelected." Participant/s</button></a>";
+      }
+      elseif($_POST["badgeType"] == 'customize'){
+        echo "<a href='customizeBadge.php?ids=".$contactIds."&eventId=".$eventId."' target='_blank'><button type='button'>View Badge of ".$totalSelected." Participant/s</button></a>";
+
+      }
+      elseif(isset($_POST["badgeType"]) && $_POST["badgeType"] == 'select'){
+        echo "<script type='text/javascript'>";
+        echo "alert('Please select badge properties');"; 
+        echo "document.location.href = 'participants.php?eventId=${eventId}'";
+        echo "</script>";
+      }
   }
-
-  elseif(isset($_POST["badgeType"]) && $_POST["badgeType"] == 'select'){
-
-  echo "<script type='text/javascript'>";
-  echo "alert('Please select badge properties');"; 
-  echo "document.location.href = 'participants.php?eventId=${eventId}'";
-  echo "</script>";
-  }
-
-  else{
-
-     if(isset($_GET['eventId'])){
-        echo $participants;
-     }
-
-  }
-
+  
+  echo $participants;
   echo "</div>";
- 
-
 ?>
 </body>
 </html>
