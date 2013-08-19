@@ -159,6 +159,12 @@ function badgeProperties(action)
         echo "<a href='viewBadge.php?ids=".$contactIds."&eventId=".$eventId."' target='_blank'><button type='button'>View Badge of ".$totalSelected." Participant/s</button></a>";
       }
       elseif($_POST["badgeType"] == 'customize'){
+        $badgeWidth = $_POST["badgeWidth"];
+        $badgeWidth = cmToPixel($badgeWidth);
+        
+        $badgeHeight = $_POST["badgeHeight"];
+        $badgeHeight = cmToPixel($badgeHeight);
+
         echo "<a href='customizeBadge.php?ids=".$contactIds."&eventId=".$eventId."' target='_blank'><button type='button'>View Badge of ".$totalSelected." Participant/s</button></a>";
 
       }
