@@ -8,4 +8,7 @@
 
   $eventId = urldecode($_REQUEST['eventId']);
   $eventId = json_decode($eventId);
+
+  $properties = urldecode($_REQUEST['properties']);
+  $properties = json_decode($properties);
 ?>
