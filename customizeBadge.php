@@ -15,11 +15,21 @@
   $properties = (object)$properties;
   $badgeWidth = $properties->bWidth."px";
   $badgeHeight = $properties->bHeight."px";
+
+  $badgeProperties = array();
+
+  $badgeProperties["imgHeight"] = $properties->imgHeight;
+  $badgeProperties["imgWidth"] = $properties->imgWidth;
+  $badgeProperties["titleSize"] = $properties->titleSize;
+  $badgeProperties["nameSize"] = $properties->nameSize;
+  $badgeProperties["orgSize"] = $properties->orgSize;
+  $badgeProperties["dateSize"] = $properties->dateSize;
+
 ?>
 <html>
 <head>
-<style type="text/css">
 <title>Customize Badge</title>
+<style>
 <?php
 
 echo "#badge{"
@@ -36,5 +46,16 @@ echo "#badge{"
 </style>
 </head>
 <body>
+<?php
+
+  foreach($contactIds as $id){
+    $participantDetails = getParticipantDetails($id);
+    $perBadge = htmlCustomizeBadge($eventId,$participantDetails,$badgeProperties);
+
+    echo $perBadge;
+
+  }
+
+?>
 </body>
 </html>
