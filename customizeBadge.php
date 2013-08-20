@@ -11,4 +11,30 @@
 
   $properties = urldecode($_REQUEST['properties']);
   $properties = json_decode($properties);
+  
+  $properties = (object)$properties;
+  $badgeWidth = $properties->bWidth."px";
+  $badgeHeight = $properties->bHeight."px";
 ?>
+<html>
+<head>
+<style type="text/css">
+<title>Customize Badge</title>
+<?php
+
+echo "#badge{"
+     . "border:1px dashed #BDBDBD;"
+     . "padding:2px;"
+     . "width:".$badgeWidth.";"
+     . "height:".$badgeHeight.";"
+     . "}"
+     . "table{"
+     . "width:".$badgeWidth.";"
+     . "height:".$badgeHeight.";"
+     . "}";
+?>
+</style>
+</head>
+<body>
+</body>
+</html>
