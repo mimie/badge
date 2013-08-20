@@ -305,6 +305,7 @@ function fontSizeOption(){
 function dimensionRatio($dimension,$size){
 
    $dimensions = array();
+   $size = (int)$size;
 
    if($dimension == 'width'){
 
