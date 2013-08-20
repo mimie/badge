@@ -159,20 +159,38 @@ function badgeProperties(action)
         echo "<a href='viewBadge.php?ids=".$contactIds."&eventId=".$eventId."' target='_blank'><button type='button'>View Badge of ".$totalSelected." Participant/s</button></a>";
       }
       elseif($_POST["badgeType"] == 'customize'){
-        $badgeWidth = $_POST["badgeWidth"];
-        $badgeWidth = cmToPixel($badgeWidth);
-        
-        $badgeHeight = $_POST["badgeHeight"];
-        $badgeHeight = cmToPixel($badgeHeight);
+
+        $properties = array();
+        $bWidth = $_POST["badgeWidth"];
+        $bWidth = cmToPixel($bWidth);
+
+        $bHeight = $_POST["badgeHeight"];
+        $bHeight = cmToPixel($bHeight);
 
         $dimension = $_POST["dimensions"];
         $dimensionSize = $_POST["dimensionSize"];
-        $dimensions = dimensionRation($dimension,$dimensionSize);
+        $dimensions = dimensionRatio($dimension,$dimensionSize);
         $imgHeight = $dimensions["height"];
-        $imgWidth = $dimension["width"];
+        $imgWidth = $dimensions["width"];
+        $titleSize = $_POST["eventSize"];
+        $nameSize = $_POST["participantSize"];
+        $orgSize = $_POST["orgSize"];
+        $dateSize = $_POST["dateSize"];
 
+        $properties["bWidth"] = $bWidth;
+        $properties["bHeight"] = $bHeight;
+        $properties["imgHeight"] = $imgHeight;
+        $properties["imgWidth"] = $imgWidth;
+        $properties["titleSize"] = $titleSize;
+        $properties["nameSize"] = $nameSize;
+        $properties["orgSize"] = $orgSize;
+        $properties["dateSize"] = $dateSize;
 
-        echo "<a href='customizeBadge.php?ids=".$contactIds."&eventId=".$eventId."' target='_blank'><button type='button'>View Badge of ".$totalSelected." Participant/s</button></a>";
+        $properties = json_encode($properties);
+        $properties = urlencode($properties);
+       
+
+        echo "<a href='customizeBadge.php?ids=".$contactIds."&eventId=".$eventId."&properties=".$properties."' target='_blank'><button type='button'>View Badge of ".$totalSelected." Participant/s</button></a>";
 
       }
       elseif(isset($_POST["badgeType"]) && $_POST["badgeType"] == 'select'){
