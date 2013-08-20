@@ -594,6 +594,50 @@ function htmlBadge($eventId,array $participant,array $properties){
    return $htmlBadge;
 }
 
+function htmlCustomizeBadge($eventId, array $participant, array $properties){
+
+   $imgHeight = $properties["imgHeight"];
+   $imgWidth = $properties["imgWidth"];
+   $titleSize = $properties["titleSize"];
+   $nameSize = $properties["nameSize"];
+   $orgSize = $properties["orgSize"];
+   $dateSize = $properties["dateSize"];
+
+   $eventName = getEventName($eventId);
+   $eventDate = getEventDate($eventId);
+   $eventDate = formatDate($eventDate);
+
+   $name = $participant["name"];
+   $orgName = $participant["org"];
+
+
+
+$htmlBadge = "<div id = 'badge'>"
+            . "<table>"
+            . "<tr>"
+            . "<td align='center' width='".$imgWidth."' height='".$imgHeight."'>"
+            . "<img src='iiap_logo.png' width='".$imgWidth."' height='".$imgHeight."'></td>"
+            . "<td align='center' height='".$imgHeight."' cellpadding='3px'>"
+            . "<font style='font-size=".$titleSize.";'>".$eventName."</td>"
+            . "</tr>";
+ 
+$htmlBadge = $htmlBadge."<tr>"
+                . "<td colspan='2' align='center'>"
+                . "<b><font style='font-size=".$nameSize.";'>".$name."</b></br></font>"
+                . "<font style='font-size=".$orgSize.";'>".$orgName."</font></td>"
+                . "</tr>";
+ 
+$htmlBadge = $htmlBadge."<tr>"
+                . "<td colspan=2 align='right'>"
+                . "<font style='font-size=".$dateSize.";'>"
+                . $eventDate . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>"
+                . "</font></tr>";
+ 
+$htmlBadge = $htmlBadge."</table>"
+                . "</div>";
+return $htmlBadge;
+}
+
 /*
  *@return conversion of centimeters to Pixels
  */
