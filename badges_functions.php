@@ -222,7 +222,7 @@ function badgePropertiesForm(){
        . "</td></tr>"
        . "<tr>"
        . "<td align='right'>Logo Size (cm):</td>"
-       . "<td align='left'><select name='logoSize'><option value='select' disabled>Select dimension</option>"
+       . "<td align='left'><select name='dimensions'><option value='select' disabled>Select dimension</option>"
        . "<option value='default' selected='selected'>default</option>"
        . "<option value='width'>width</option>"
        . "<option value='height'>height</option></select>"
@@ -295,6 +295,39 @@ function fontSizeOption(){
 
   return $html;
 
+}
+
+/*
+ *@param (text) (dimension) - dimension can be of value height/width
+ *@param (number) (size) - size of the dimension given
+ *@return array of dimensions of the properties of image height and width
+ */
+function dimensionRatio($dimension,$size){
+
+   $dimensions = array();
+
+   if($dimension == 'width'){
+
+     $height = (73*$size)/77;
+     $dimensions["width"] = $size;
+     $dimensions["height"] = $height;
+     return $dimensions;
+   }
+
+   elseif($dimension == 'height'){
+
+     $width = (77*$size)/73;
+     $dimensions["height"] = $size;
+     $dimensions["width"] = $width;
+     return $dimensions;
+   }
+
+   elseif($dimension == 'default'){
+
+     $dimensions["height"] = 77;
+     $dimensions["width"] = 73;
+     return $dimensions;
+   }
 }
 
 /*
