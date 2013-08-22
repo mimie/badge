@@ -306,6 +306,7 @@ function dimensionRatio($dimension,$size){
 
    $dimensions = array();
    $size = (int)$size;
+   $size = cmToPixel($size);
 
    if($dimension == 'width'){
 
