@@ -116,6 +116,18 @@ function badgeProperties(action)
     }
 }
 
+function changeLogoTextbox(val){
+
+  var element = document.getElementById("logo");
+
+  if(val == 'default'){
+    element.style.display='none';
+  }
+
+  else{
+    element.style.display='block';
+  }
+}
 </script>
 <body>
 <?php
