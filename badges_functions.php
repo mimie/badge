@@ -618,7 +618,7 @@ $htmlBadge = "<div id = 'badge'>"
             . "<td align='center' width='".$imgWidth."' height='".$imgHeight."'>"
             . "<img src='iiap_logo.png' width='".$imgWidth."' height='".$imgHeight."'></td>"
             . "<td align='center' height='".$imgHeight."' cellpadding='3px'>"
-            . "<font style='font-size:".$titleSize.";'>".$eventName."</td>"
+            . "<font style='font-size:".$titleSize.";'><b>".$eventName."</b></td>"
             . "</tr>";
  
 $htmlBadge = $htmlBadge."<tr>"
