@@ -20,10 +20,30 @@
 
   $badgeProperties["imgHeight"] = $properties->imgHeight;
   $badgeProperties["imgWidth"] = $properties->imgWidth;
-  $badgeProperties["titleSize"] = $properties->titleSize;
-  $badgeProperties["nameSize"] = $properties->nameSize;
-  $badgeProperties["orgSize"] = $properties->orgSize;
-  $badgeProperties["dateSize"] = $properties->dateSize;
+
+  if($properties->titleSize == 'default'){
+    $badgeProperties["titleSize"] = '14pt';
+  }else{
+    $badgeProperties["titleSize"] = $properties->titleSize;
+   }
+
+  if($properties->nameSize == 'default'){
+    $badgeProperties["nameSize"] = '18pt';
+  }else{
+    $badgeProperties["nameSize"] = $properties->nameSize;
+  }
+
+  if($properties->orgSize == 'default'){
+    $badgeProperties["orgSize"] = '13pt';
+  }else{
+    $badgeProperties["orgSize"] = $properties->orgSize;
+   }
+
+  if($properties->dateSize == 'default'){
+    $badgeProperties["dateSize"] = '13pt';
+  }else{
+    $badgeProperties["dateSize"] = $properties->dateSize;
+   }
 
 ?>
 <html>
