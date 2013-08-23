@@ -1,6 +1,9 @@
 <?php
   include 'dbcon.php';
   include 'badges_functions.php';
+
+  $eventId = $_GET["eventId"];
+  $eventName = getEventName($eventId);
 ?>
 <html>
 <head>
@@ -29,7 +32,7 @@ Attendance and CPE Form</h4>
  <table id="">
   <tr>
    <td><b>Topic</b></td>
-   <td>BUSINESS PROCESSING MAPPING</td>
+   <td><?=$eventName?></td>
   </tr>
   <tr>
    <td><b>Date, Time</b></td>
