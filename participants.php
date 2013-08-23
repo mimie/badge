@@ -158,7 +158,7 @@ function changeLogoTextbox(val){
   if(isset($_POST["searchParticipant"])){
      $searchCriteria = $_POST["searchCriteria"];
      $participants = resultSearchParticipant($eventId,$searchCriteria);
-     echo $participants;
+//     echo $participants;
   }
 
   elseif(isset($_POST["badgeType"])){
