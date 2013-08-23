@@ -113,7 +113,8 @@ function displayAllEvents(){
   $html = $html."<table>"
         . "<th>Event Title</th>"
         . "<th>Event Date</th>"
-        . "<th>View Participant List</th>";
+        . "<th>View Participant List</th>"
+        . "<th>Download Event Form</th>";
 
   foreach($allEvents as $eventId=>$details){
         $title = $details["title"];
@@ -124,6 +125,7 @@ function displayAllEvents(){
           . "<td>$title</td>"
           . "<td>$date</td>"
           . "<td class='center'><a href='participants.php?eventId=$eventId'>Participants</a></td>"
+          . "<td class='center'><a href='eventList.php?eventId=$eventId'>Event Form</a></td>"
           . "</tr>";
   }
 
