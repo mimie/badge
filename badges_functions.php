@@ -665,4 +665,15 @@ function generatePDF($html,$eventId){
    $dompdf->render();
    file_put_contents($fileLocation, $dompdf->output( array("compress" => 0) ));
 }
+
+function getSpeakerContactId($eventId){
+
+ $sql = "SELECT contact_id FROM civicrm_participant WHERE event_id='$eventId' AND role_id='4'";
+ $result = mysql_query($sql) or die(mysql_error());
+ $row = mysql_fetch_assoc($result);
+ $contactId = $row["contact_id"];
+
+ return $contactId; 
+
+}
 ?>
