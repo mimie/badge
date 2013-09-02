@@ -51,5 +51,8 @@
 
    $htmlBadge2 = htmlBadge('139',$participant2,$properties);
    var_dump($htmlBadge2);
+
+   $speakerContactId = getSpeakerContactId(71);
+   var_dump($speakerContactId);
    
 ?>
