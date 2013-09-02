@@ -5,6 +5,8 @@
   $eventId = $_GET["eventId"];
   $eventName = getEventName($eventId);
   $eventDate = getEventDate($eventId);
+  $eventDate = DateTime::createFromFormat('Y-m-d H:i:s',$eventDate);
+  $eventDate = $eventDate->format('j F Y');
 ?>
 <html>
 <head>
