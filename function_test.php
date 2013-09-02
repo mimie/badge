@@ -54,5 +54,8 @@
 
    $speakerContactId = getSpeakerContactId(71);
    var_dump($speakerContactId);
+
+   $speakerName = getSpeakerName($speakerContactId);
+   var_dump($speakerName);
    
 ?>
