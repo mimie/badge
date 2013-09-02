@@ -676,4 +676,14 @@ function getSpeakerContactId($eventId){
  return $contactId; 
 
 }
+
+function getSpeakerName($contactId){
+
+ $sql = "SELECT display_name FROM civicrm_contact WHERE id='$contactId'";
+ $result = mysql_query($sql) or die(mysql_error());
+ $row = mysql_fetch_assoc($result);
+ $name = $row["display_name"];
+
+ return $name;
+}
 ?>
