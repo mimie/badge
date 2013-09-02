@@ -4,6 +4,7 @@
 
   $eventId = $_GET["eventId"];
   $eventName = getEventName($eventId);
+  $eventDate = getEventDate($eventId);
 ?>
 <html>
 <head>
@@ -36,7 +37,7 @@ Attendance and CPE Form</h4>
   </tr>
   <tr>
    <td><b>Date, Time</b></td>
-   <td>22 JUNE 2013</td>
+   <td><?=$eventDate?></td>
   </tr>
   <tr>
    <td><b>Speaker</b></td> 
