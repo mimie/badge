@@ -55,7 +55,10 @@
    $speakerContactId = getSpeakerContactId(71);
    var_dump($speakerContactId);
 
-   $speakerName = getSpeakerName($speakerContactId);
+   $speakerName = getParticipantName($speakerContactId);
    var_dump($speakerName);
+
+   $certification = getCertification(933);
+   var_dump($certification);
    
 ?>
