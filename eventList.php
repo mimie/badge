@@ -23,19 +23,30 @@
 #eventDetails{
   padding:5px;
 }
+
+table#eventInfo{
+  border-collapse:collapse;
+  border: 1px solid black;
+}
+
+table#eventInfo td{
+  border-collapse:collapse;
+  border: 1px solid black;
+  padding: 5px;
+}
 </style>
 </head>
 <body>
-<div style="height:5px;border:1px solid #0489B1;background:#0489B1;"></div>
+<!--<div style="height:5px;border:1px solid #0489B1;background:#0489B1;"></div>-->
 <div id="eventHeader">
 <h4>Institute of Internal Auditors - Philippines<br>
 Centre for Professional Development<br>
 Attendance and CPE Form</h4>
 </div>
-<div style="height:5px;border:1px solid #0489B1;background:#0489B1;"></div>
+<!--<div style="height:5px;border:1px solid #0489B1;background:#0489B1;"></div>-->
 
 <div id="eventDetails" align="center">
- <table id="">
+ <table id="eventInfo">
   <tr>
    <td><b>Topic</b></td>
    <td><?=$eventName?></td>
