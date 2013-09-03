@@ -7,6 +7,9 @@
   $eventDate = getEventDate($eventId);
   $eventDate = DateTime::createFromFormat('Y-m-d H:i:s',$eventDate);
   $eventDate = $eventDate->format('j F Y');
+
+  $speakerContactId = getSpeakerContactId($eventId);
+  $speakerName = getSpeakerName($speakerContactId);
 ?>
 <html>
 <head>
@@ -43,7 +46,7 @@ Attendance and CPE Form</h4>
   </tr>
   <tr>
    <td><b>Speaker</b></td> 
-   <td>Mags V. Mendez III, CPA, CIA, CCSA, CRMA</td>
+   <td><?=$speakerName?></td>
   </tr>
   <tr>
    <td><b>Venue</b></td>
