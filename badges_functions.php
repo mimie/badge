@@ -688,4 +688,15 @@ function getParticipantName($contactId){
 
  return $name;
 }
+
+function getCertification($contactId){
+
+ $contactId = mysql_real_escape_string($contactId);
+ $sql = "SELECT are_you__10 FROM civicrm_value_business_data_1 WHERE entity_id='{$contactId}'";
+ $result = mysql_query($sql) or die(mysql_error());
+ $row = mysql_fetch_assoc($result);
+ $certification = $row["are_you__10"];
+ 
+ return $certification;
+}
 ?>
