@@ -10,6 +10,10 @@
 
   $speakerContactId = getSpeakerContactId($eventId);
   $speakerName = getParticipantName($speakerContactId);
+
+  $contactIds = getEventParticipantId($eventId);
+
+  $allContacts = getAllContacts();
 ?>
 <html>
 <head>
@@ -18,6 +22,7 @@
 #eventHeader{
   text-align:center;
   padding:5px;
+  font-size:14px;
 }
 
 #eventDetails{
@@ -33,6 +38,7 @@ table#eventInfo td{
   border-collapse:collapse;
   border: 1px solid black;
   padding: 5px;
+  font-size:14px;
 }
 
 table#participantInfo{
@@ -89,6 +95,27 @@ Attendance and CPE Form</h4>
   <th>If CPA, CPA No.</th>
   <th>Signature</th>
  </tr>
+
+<?php
+ $count = 1;
+ foreach($contactIds as $id){
+
+   $contactInfo = $allContacts[$id];
+
+   echo "<tr>";
+   echo "<td>$count</td>";
+   echo "<td>".$contactInfo['name']."</td>";
+   echo "<td>".$contactInfo['org']."</td>";
+   echo "<td>".$contactInfo['job']."</td>";
+   echo "<td></td>";
+   echo "<td></td>";
+   echo "<td></td>";
+   echo "<td></td>";
+   echo "</tr>";
+    
+   $count++;
+ }
+?>
  </table>
 </div>
 
