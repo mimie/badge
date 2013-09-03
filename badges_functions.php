@@ -699,4 +699,28 @@ function getCertification($contactId){
  
  return $certification;
 }
+
+function identifyCertification($certification){
+
+  if($certification != NULL){
+    $isCIA = preg_match("/CIA/",$certification);
+    $isCPA = preg_match("/CPA/",$certification);
+
+    if($isCIA == 1 && $isCPA == 1){
+       return "both";
+    }
+
+    elseif($isCIA == 1){
+       return "CIA";
+    }
+
+    elseif($isCPA == 1){
+       return "CPA";
+    }
+  }
+
+  else{
+    return NULL;
+  }
+}
 ?>
