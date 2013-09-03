@@ -62,7 +62,7 @@ function getEventDate($eventId){
         )*/
 function getAllContacts(){
 
-  $sql = "SELECT id,display_name,organization_name FROM civicrm_contact";
+  $sql = "SELECT id,display_name,organization_name,job_title FROM civicrm_contact";
   $result = mysql_query($sql) or die(mysql_error());
 
   $contacts = array();
@@ -72,9 +72,11 @@ function getAllContacts(){
      $contactId = $row['id'];
      $displayName = $row['display_name'];
      $orgName = $row['organization_name'];
+     $job = $row['job_title'];
 
      $details['name'] = $displayName;
      $details['org'] = $orgName;
+     $details['job'] = $job;
 
      $contacts[$contactId] = $details;
      unset($details);
