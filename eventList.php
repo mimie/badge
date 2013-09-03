@@ -32,6 +32,7 @@
 table#eventInfo{
   border-collapse:collapse;
   border: 1px solid black;
+  width: 80%;
 }
 
 table#eventInfo td{
@@ -44,6 +45,8 @@ table#eventInfo td{
 table#participantInfo{
   border-collapse:collapse;
   border:1px solid black;
+  font-size:14px;
+  width: 80%;
 }
 
 table#participantInfo td,th{
@@ -65,8 +68,8 @@ Attendance and CPE Form</h4>
 <div id="eventDetails" align="center">
  <table id="eventInfo">
   <tr>
-   <td><b>Topic</b></td>
-   <td><?=$eventName?></td>
+   <td width='6%'><b>Topic</b></td>
+   <td width='94%'><?=$eventName?></td>
   </tr>
   <tr>
    <td><b>Date, Time</b></td>
@@ -80,7 +83,7 @@ Attendance and CPE Form</h4>
    <td><b>Venue</b></td>
    <td>ST. GILES HOTEL, MAKATI CITY</td>
   </tr>
- </table>
+ </table><br>
 </div>
 
 <div id="participantDetails" align="center">
