@@ -104,6 +104,25 @@ Attendance and CPE Form</h4>
  foreach($contactIds as $id){
 
    $contactInfo = $allContacts[$id];
+   $certification = getCertification($id);
+   var_dump($certification);
+   $certification = identifyCertification("CIACPA");
+   
+   if($certification == "CIA" || $certification == "both"){
+      $CIA == "CIA";
+   }
+
+   else{
+     $CIA == "";
+   }
+
+   if($certification == "CPA" || $certification == "both"){
+     $CPA = "CPA";
+   }
+
+   else{
+     $CPA = "";
+   }
 
    echo "<tr>";
    echo "<td>$count</td>";
@@ -112,8 +131,8 @@ Attendance and CPE Form</h4>
    echo "<td>".$contactInfo['job']."</td>";
    echo "<td></td>";
    echo "<td></td>";
-   echo "<td></td>";
-   echo "<td></td>";
+   echo "<td>".$CIA."</td>";
+   echo "<td>".$CPA."</td>";
    echo "</tr>";
     
    $count++;
