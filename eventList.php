@@ -9,7 +9,7 @@
   $eventDate = $eventDate->format('j F Y');
 
   $speakerContactId = getSpeakerContactId($eventId);
-  $speakerName = getSpeakerName($speakerContactId);
+  $speakerName = getParticipantName($speakerContactId);
 ?>
 <html>
 <head>
@@ -33,6 +33,17 @@ table#eventInfo td{
   border-collapse:collapse;
   border: 1px solid black;
   padding: 5px;
+}
+
+table#participantInfo{
+  border-collapse:collapse;
+  border:1px solid black;
+}
+
+table#participantInfo td,th{
+  border-collapse:collapse;
+  border:1px solid black;
+  padding: 4px;
 }
 </style>
 </head>
@@ -63,6 +74,21 @@ Attendance and CPE Form</h4>
    <td><b>Venue</b></td>
    <td>ST. GILES HOTEL, MAKATI CITY</td>
   </tr>
+ </table>
+</div>
+
+<div id="participantDetails" align="center">
+ <table id="participantInfo">
+ <tr>
+  <th>No.</th>
+  <th>Name</th>
+  <th>Company</th>
+  <th>Position</th>
+  <th>Yrs in Co / Current Position</th>
+  <th>If CIA, CIA No.</th>
+  <th>If CPA, CPA No.</th>
+  <th>Signature</th>
+ </tr>
  </table>
 </div>
 
