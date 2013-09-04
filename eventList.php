@@ -105,22 +105,24 @@ Attendance and CPE Form</h4>
 
    $contactInfo = $allContacts[$id];
    $certification = getCertification($id);
-   var_dump($certification);
-   $certification = identifyCertification("CIACPA");
+   $certification = identifyCertification($certification);
    
-   if($certification == "CIA" || $certification == "both"){
-      $CIA == "CIA";
+   if($certification == "CIA"){
+      $CIA = "CIA";
    }
-
-   else{
-     $CIA == "";
-   }
-
-   if($certification == "CPA" || $certification == "both"){
+   
+   elseif($certification == "CPA"){
      $CPA = "CPA";
    }
 
+   elseif($certification == "both"){
+     $CIA = "CIA";
+     $CPA = "CPA";
+
+   }
+
    else{
+     $CIA ="";
      $CPA = "";
    }
 
@@ -130,9 +132,9 @@ Attendance and CPE Form</h4>
    echo "<td>".$contactInfo['org']."</td>";
    echo "<td>".$contactInfo['job']."</td>";
    echo "<td></td>";
-   echo "<td></td>";
    echo "<td>".$CIA."</td>";
    echo "<td>".$CPA."</td>";
+   echo "<td></td>";
    echo "</tr>";
     
    $count++;
