@@ -703,8 +703,11 @@ function getCertification($contactId){
 function identifyCertification($certification){
 
   if($certification != NULL){
-    $isCIA = preg_match("/CIA/",$certification);
-    $isCPA = preg_match("/CPA/",$certification);
+
+    $patternCIA = "/\b\w*CIA\w*\b/";
+    $patternCPA = "/\b\w*CPA\w*\b/";
+    $isCIA = preg_match($patternCIA,$certification);
+    $isCPA = preg_match($patternCPA,$certification);
 
     if($isCIA == 1 && $isCPA == 1){
        return "both";
@@ -723,4 +726,5 @@ function identifyCertification($certification){
     return NULL;
   }
 }
+
 ?>
