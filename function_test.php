@@ -60,5 +60,17 @@
 
    $certification = getCertification(933);
    var_dump($certification);
+
+   $certification = identifyCertification("CIACPA");
+   var_dump($certification);
+
+   $certification2 = identifyCertification("CIA");
+   var_dump($certification2);
+
+   $certification3 = identifyCertification("CPA");
+   var_dump($certification3);
+
+   $certification4 = identifyCertification("CRMACIA");
+   var_dump($certification4);
    
 ?>
