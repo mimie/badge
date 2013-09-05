@@ -127,7 +127,7 @@ function displayAllEvents(){
           . "<td>$title</td>"
           . "<td>$date</td>"
           . "<td class='center'><a href='participants.php?eventId=$eventId'>Participants</a></td>"
-          . "<td class='center'><a href='eventList.php?eventId=$eventId'>Event Form</a></td>"
+          . "<td class='center'><a href='eventList.php?eventId=$eventId' target='_blank'>Event Form</a></td>"
           . "</tr>";
   }
 
