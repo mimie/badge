@@ -142,6 +142,15 @@ Attendance and CPE Form</h4>
 ?>
  </table>
 </div>
+<div align="center">
+<table style="width:80%;">
+<tr><td><b>SIGN-OFFS FOR CONTINUING PROFESSIONAL EDUCATION (CPE) REQUIREMENTS</b></td></tr>
+</table>
+</div>
+
+<div align="center">
+<table><tr><td><div style="border-style:solid;width:1450px"></div></td></tr></table>
+</div>
 
 </body>
 </html>
