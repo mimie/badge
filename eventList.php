@@ -6,7 +6,7 @@
   $eventName = getEventName($eventId);
   $eventDate = getEventDate($eventId);
   $eventDate = DateTime::createFromFormat('Y-m-d H:i:s',$eventDate);
-  $eventDate = new DateTime($eventDate->format("j F Y"));
+  $eventDate = $eventDate->format("j F Y");
 
   $speakerContactId = getSpeakerContactId($eventId);
   $speakerName = getParticipantName($speakerContactId);
@@ -94,7 +94,7 @@ Attendance and CPE Form</h4>
   </tr>
   <tr>
    <td><b>Venue</b></td>
-   <td>ST. GILES HOTEL, MAKATI CITY</td>
+   <td></td>
   </tr>
  </table><br>
 </div>
@@ -107,8 +107,7 @@ Attendance and CPE Form</h4>
   <th>Company</th>
   <th>Position</th>
   <th>Yrs in Co / Current Position</th>
-  <th>If CIA, CIA No.</th>
-  <th>If CPA, CPA No.</th>
+  <th>Certifications</th>
   <th>Signature</th>
  </tr>
 
@@ -118,35 +117,15 @@ Attendance and CPE Form</h4>
 
    $contactInfo = $allContacts[$id];
    $certification = getCertification($id);
-   $certification = identifyCertification($certification);
+   $certifications = identifyCertification($certification);
    
-   if($certification == "CIA"){
-      $CIA = "CIA";
-   }
-   
-   elseif($certification == "CPA"){
-     $CPA = "CPA";
-   }
-
-   elseif($certification == "both"){
-     $CIA = "CIA";
-     $CPA = "CPA";
-
-   }
-
-   else{
-     $CIA ="";
-     $CPA = "";
-   }
-
    echo "<tr>";
    echo "<td>$count</td>";
    echo "<td>".$contactInfo['name']."</td>";
    echo "<td>".$contactInfo['org']."</td>";
    echo "<td>".$contactInfo['job']."</td>";
    echo "<td></td>";
-   echo "<td>".$CIA."</td>";
-   echo "<td>".$CPA."</td>";
+   echo "<td>".$certifications."</td>";
    echo "<td></td>";
    echo "</tr>";
     
@@ -186,7 +165,7 @@ Attendance and CPE Form</h4>
   <td></td>
 </tr>
 </table>
-</div><br><br>
+</div><br>
 
 <div align="center">
 <table style="width:80%;">
@@ -208,7 +187,7 @@ Attendance and CPE Form</h4>
   <td width="45%"></td>
 </tr>
 </table>
-</div><br><br>
+</div>
 
 
 
