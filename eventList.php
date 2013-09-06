@@ -6,7 +6,7 @@
   $eventName = getEventName($eventId);
   $eventDate = getEventDate($eventId);
   $eventDate = DateTime::createFromFormat('Y-m-d H:i:s',$eventDate);
-  $eventDate = $eventDate->format('j F Y');
+  $eventDate = new DateTime($eventDate->format("j F Y"));
 
   $speakerContactId = getSpeakerContactId($eventId);
   $speakerName = getParticipantName($speakerContactId);
@@ -50,6 +50,19 @@ table#participantInfo{
 }
 
 table#participantInfo td,th{
+  border-collapse:collapse;
+  border:1px solid black;
+  padding: 4px;
+}
+
+table#attachments{
+  border-collapse:collapse;
+  border:1px solid black;
+  font-size:14px;
+  width: 80%;
+}
+
+table#attachments td,th{
   border-collapse:collapse;
   border:1px solid black;
   padding: 4px;
@@ -151,6 +164,53 @@ Attendance and CPE Form</h4>
 <div align="center">
 <table><tr><td><div style="border-style:solid;width:1450px"></div></td></tr></table>
 </div>
+
+<div align="center">
+<table style="width:80%;">
+<tr>
+   <td align="left" width="55%"><font style="font-size:14px;">Required attachments to this form [to be accomplished at the end of the seminar by IIA-P Training Officer/Assistant, signature and date]</font></td>
+   <td width="45%" align="center"><font style="font-size:14px;">8 hours</font></td>
+</tr>
+</table>
+<table id="attachments">
+<tr>
+  <td width="55%">Total CPE hours credited</td>
+  <td width="45%" align="center">/</td>
+<tr>
+<tr>
+  <td width="55%">Copy of course outline and description (course seminar flyer)</td>
+  <td width="45%" align="center">/</td>
+</tr>
+<tr>
+  <td>Summary of seminar evaluation</td>
+  <td></td>
+</tr>
+</table>
+</div><br><br>
+
+<div align="center">
+<table style="width:80%;">
+<tr>
+   <td align="left"><font style="font-size:14px;">Required sign offs from the Centre for Professional Development and IIA-P (Name, signature and date)</font></td>
+</tr>
+</table>
+<table id="attachments">
+<tr>
+  <td width="55%">Company Representative (For in-house only, please also add Position)</td>
+  <td align="center" width="45%">n/a</td>
+<tr>
+<tr>
+  <td width="55%">Speaker/Facilitator</td>
+  <td width="45%"></td>
+</tr>
+<tr>
+  <td width="55%">VP,Professional Development</td>
+  <td width="45%"></td>
+</tr>
+</table>
+</div><br><br>
+
+
 
 </body>
 </html>
