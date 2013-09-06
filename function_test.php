@@ -70,7 +70,10 @@
    $certification3 = identifyCertification("CPA");
    var_dump($certification3);
 
-   $certification4 = identifyCertification("CRMACIA");
+   $certification4 = identifyCertification("CRMACIACPACSACFE");
    var_dump($certification4);
+
+   $certification5 = identifyCertification("CPACIACCSACFSACRMACISACFEMBA");
+   var_dump($certification5);
    
 ?>
