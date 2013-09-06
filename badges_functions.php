@@ -702,13 +702,61 @@ function getCertification($contactId){
 
 function identifyCertification($certification){
 
+  $certifications = array();
+
   if($certification != NULL){
 
     $patternCIA = "/\b\w*CIA\w*\b/";
     $patternCPA = "/\b\w*CPA\w*\b/";
+    $patternCCSA = "/\b\w*CCSA\w*\b/";
+    $patternCFSA = "/\b\w*CFSA\w*\b/";
+    $patternCRMA = "/\b\w*CRMA\w*\b/";
+    $patternCISA = "/\b\w*CISA\w*\b/";
+    $patternCFE = "/\b\w*CFE\w*\b/";
+    $patternMBA = "/\b\w*MBA\w*\b/";
+
+
     $isCIA = preg_match($patternCIA,$certification);
     $isCPA = preg_match($patternCPA,$certification);
+    $isCCSA = preg_match($patternCCSA,$certification);
+    $isCFSA = preg_match($patternCFSA,$certification);
+    $isCRMA = preg_match($patternCRMA,$certification);
+    $isCISA = preg_match($patternCISA,$certification);
+    $isCFE = preg_match($patternCFE,$certification);
+    $isMBA = preg_match($patternMBA,$certification);
 
+    if($isCIA == 1){
+      $certifications[] = "CIA";
+    }
+
+    if($isCPA == 1){
+      $certifications[] = "CPA";
+    }
+
+    if($isCSSA == 1){
+      $certifications[] = "CSSA";
+    }
+
+    if($isCFSA == 1){
+      $certifications[] = "CFSA";
+    }
+
+    if($isCRMA == 1){
+      $certifications[] = "CRMA";
+    }
+
+    if($isCISA == 1){
+      $certifications[] = "CISA";
+    }
+
+    if($isCFE == 1){
+      $certifications[] = "CFE";
+    }
+
+    if($isMBA ==1){
+      $certifications[] = "MBA";
+    }
+/**
     if($isCIA == 1 && $isCPA == 1){
        return "both";
     }
@@ -719,7 +767,12 @@ function identifyCertification($certification){
 
     elseif($isCPA == 1){
        return "CPA";
-    }
+    }**/
+
+   $comma_certifications = implode(",",$certifications);
+
+   return $comma_certifications;
+
   }
 
   else{
