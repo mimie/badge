@@ -1,5 +1,5 @@
 <?php
-$db=mysql_connect('localhost', 'root', 'mysqladmin');
+$db=mysql_connect('54.225.135.94', 'imperium', 'mysqladmin');
 if (!$db) {
           die('Could not connect: ' . mysql_error());
  }
