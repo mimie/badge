@@ -30,10 +30,11 @@
 </form>
 <form name="events" method="post">
 <p>
- <input type="text" name="eventName" placeholder="Event Name" required>
+ <input type="text" name="eventName">
  <input type="submit" value="Search Event Name" name="searchEvent">
+  <input type="submit" value="View All Events" name ="viewAll">
+</form> 
 </p>
-</form>
 <?php
   if($_POST["viewEvents"]){
   $startDate = $_POST["startDate"];
@@ -55,6 +56,16 @@
     echo $eventsDisplay;
 
   }
+
+  elseif($_POST["viewAll"] || !$_POST["viewEvents"] || !$_POST["searchEvent"]){
+    $allEvents = getAllEvents();
+    $eventIds = array_keys($allEvents);
+
+    $eventsDisplay = displayEvents($eventIds);
+    echo $eventsDisplay;
+  }
+
+  
 ?>
 
 
