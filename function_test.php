@@ -2,6 +2,7 @@
    
    include 'dbcon.php';
    include 'badges_functions.php';
+   include 'weberp_functions.php';
 
    $event1 = searchEvent("e");
    $event2 = searchEvent("Meeting");
@@ -75,5 +76,4 @@
 
    $certification5 = identifyCertification("CPACIACCSACFSACRMACISACFEMBA");
    var_dump($certification5);
-   
 ?>
