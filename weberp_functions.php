@@ -65,6 +65,26 @@ function getStatusId($eventId,$contactId){
 
   return $statusId;
 }
+
+
+function searchEventName($eventName){
+
+  $allEvents = getAllEvents();
+  $eventIdMatches = array();
+
+  $patternEvent = "/\b\w*".$eventName."\w*\b/";
+
+  foreach($allEvents as $eventId => $details){
+    $title = $details["title"];
+    $result = preg_match($patternEvent,$title);
+
+    if($result == 1){
+      $eventIdMatches[] = $eventId;
+
+    }
+  }
+
+  return $eventIdMatches;
+}
+
 ?>
-
-
