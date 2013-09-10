@@ -43,18 +43,6 @@ function displayEvents($eventIds){
   return $html;
 }
 
-function getParticipantStatusType($statusId){
-
-  $sql = "SELECT label FROM civicrm_participant_status_type WHERE id ='$statusId'";
-  $result = mysql_query($sql) or die(mysql_error());
-
-  $row = mysql_fetch_assoc($result);
-  $status = $row["label"];
-
-  return $status;
-
-}
-
 function getStatusId($eventId,$contactId){
 
   $sql = "SELECT status_id FROM civicrm_participant WHERE event_id = '$eventId' AND contact_id='$contactId'";
@@ -137,5 +125,24 @@ function getParticipantStatusId($contactId,$eventId){
  return $statusId;
 
 }
+
+function getParticipantStatusType(){
+ 
+  $status = array();
+  
+  $sql = "SELECT id,label FROM civicrm_participant_status_type";
+  $result = mysql_query($sql) or die(mysql_error());
+ 
+  while($row = mysql_fetch_assoc($result)){
+     
+     $statusId = $row["id"];
+     $statusName = $row["label"];
+  
+     $status[$statusId] = $statusName;
+  }
+  
+  return $status;
+ }
+
 
 ?>
