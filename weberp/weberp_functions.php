@@ -155,5 +155,25 @@ function getParticipantStatusType(){
   return $status;
  }
 
+function statusTypeSelectForm($statusId){
+
+  $status = getParticipantStatusType();
+
+  $html = "<SELECT name='statusType'>";
+
+  foreach($status as $id => $statusName){
+
+    $selected = $statusId == $id ? 'selected' : '';
+    var_dump($selected);
+    $html = $html."<option value='$id' $selected>$statusName</option>";
+  }
+
+  $html = $html."</SELECT>";
+
+  return $html;
+
+
+}
+
 
 ?>
