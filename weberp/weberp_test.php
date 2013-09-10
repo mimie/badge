@@ -19,4 +19,7 @@
   $statusId = getParticipantStatusId("7831","139");
   var_dump($statusId);
 
+  $status = getParticipantStatusType();
+  var_dump($status);
+
 ?>
