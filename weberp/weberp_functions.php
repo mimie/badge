@@ -132,6 +132,10 @@ function getParticipantStatusId($contactId,$eventId){
 
 }
 
+/*
+ *On waitlist, Awaiting Approval, Pending from waitlist,
+ *Pending from Approval, Rejected are disabled status type
+ */
 function getParticipantStatusType(){
  
   $status = array();
