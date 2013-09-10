@@ -87,4 +87,55 @@ function searchEventName($eventName){
   return $eventIdMatches;
 }
 
+function getParticipantByEvent($eventId){
+
+ $allContacts = getAllContacts();
+ $contactIds = getEventParticipantId($eventId);
+ $allEmails = getAllEmails();
+
+ $html = "<table>"
+       . "<tr>"
+       . "<th>Participant Name</th>"
+       . "<th>Organization Name</th>"
+       . "<th>Email Address</th>"
+       . "<th>Participant Status</th>"
+       . "<tr>";
+
+ foreach($contactIds as $id){
+
+  $details = $allContacts[$id];
+  $name = $details["name"];
+  $org = $details["org"];
+  $email = $allEmails[$id];
+
+  $html = $html."<tr>"
+        . "<td>$name</td>"
+        . "<td>$org</td>"
+        . "<td>$email</td>"
+        . "</tr>";
+  }
+
+  $html = $html."</table>";
+
+  return $html;
+
+ 
+}
+
+function getParticipantStatusId($contactId,$eventId){
+
+ $contactId = mysql_real_escape_string($contactId);
+ $eventId = mysql_real_escape_string($eventId);
+ $sql = "SELECT status_id FROM civicrm_participant\n" 
+      . "WHERE contact_id = '{$contactId}'"
+      . "AND event_id ='{$eventId}'";
+ $result = mysql_query($sql) or die(mysql_error());
+
+ $row = mysql_fetch_assoc($result);
+ $statusId = $row["status_id"];
+
+ return $statusId;
+
+}
+
 ?>
