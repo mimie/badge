@@ -80,6 +80,8 @@ function getParticipantByEvent($eventId){
  $allContacts = getAllContacts();
  $contactIds = getEventParticipantId($eventId);
  $allEmails = getAllEmails();
+ $status = getParticipantStatusType();
+ 
 
  $html = "<table>"
        . "<tr>"
@@ -95,11 +97,15 @@ function getParticipantByEvent($eventId){
   $name = $details["name"];
   $org = $details["org"];
   $email = $allEmails[$id];
+  
+  $statusId = getParticipantStatusId($id,$eventId);
+  $statusName = $status[$statusId];
 
   $html = $html."<tr>"
         . "<td>$name</td>"
         . "<td>$org</td>"
         . "<td>$email</td>"
+        . "<td>$statusName</td>"
         . "</tr>";
   }
 
@@ -130,7 +136,8 @@ function getParticipantStatusType(){
  
   $status = array();
   
-  $sql = "SELECT id,label FROM civicrm_participant_status_type";
+  $sql = "SELECT id,label FROM civicrm_participant_status_type\n"
+       . "WHERE id NOT IN(7,8,9,10)";
   $result = mysql_query($sql) or die(mysql_error());
  
   while($row = mysql_fetch_assoc($result)){
