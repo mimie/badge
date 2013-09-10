@@ -34,7 +34,7 @@ function displayEvents($eventIds){
     $html = $html."<tr>"
           ."<td>$title</td>"
           ."<td>".formatDate($date)."</td>"
-          ."<td>Participants</td>"
+          ."<td><a href='participantListing.php?eventId=".$id."'>Participants</a></td>"
           ."</tr>";
 
   }
