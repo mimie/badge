@@ -176,8 +176,16 @@ function statusTypeSelectForm($statusId){
   $html = $html."</SELECT>";
 
   return $html;
+}
 
+function displayEventHeader($eventId){
 
+  $eventName = getEventName($eventId);
+  $html = "<div>"
+        . "List of Participants for $eventName"
+        . "</div>";
+
+  return $html;
 }
 
 
