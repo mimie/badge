@@ -18,7 +18,7 @@ function getEventByDate($startDate,$endDate){
 function displayEvents($eventIds){
 
   $allEvents = getAllEvents();
-  $html = "<table border='1' align='center'>"
+  $html = "<table align='center' border='1'>"
         . "<tr>"
         . "<th>Event Title</th>"
         . "<th>Event Date</th>"
@@ -81,9 +81,11 @@ function getParticipantByEvent($eventId){
  $contactIds = getEventParticipantId($eventId);
  $allEmails = getAllEmails();
  $status = getParticipantStatusType();
- 
+ $statusSelector = participantStatusSelector();
 
- $html = "<table border='1' align='center'>"
+ $html = "<div align='center' style='padding:6px;'>$statusSelector</div>";
+ 
+ $html = $html."<table border='1' align='center'>"
        . "<tr>"
        . "<th>Participant Name</th>"
        . "<th>Organization Name</th>"
@@ -205,5 +207,22 @@ function getParticipantFeeAmount($contactId,$eventId){
   $feeAmount = $row["fee_amount"];
 
   return $feeAmount;
+}
+
+function participantStatusSelector(){
+
+  $status = getParticipantStatusType();
+
+  $html = "Change Participant Status: "
+        . "<SELECT name='statusType'>"
+        . "<option value='select'>Select status</option>"
+        . "<option disabled>-------------</option>";
+  foreach($status as $id => $statusName){
+   $html = $html."<option value='$id'>$statusName</option>";
+  }
+  $html = $html."</SELECT><br>";
+  $html = $html."Check All<input type='checkbox'>";
+
+  return $html;
 }
 ?>
