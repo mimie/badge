@@ -90,6 +90,7 @@ function getParticipantByEvent($eventId){
        . "<th>Email Address</th>"
        . "<th>Participant Status</th>"
        . "<th>Change Participant Status</th>"
+       . "<th>Fee Amount</th>"
        . "<th>Post</th>"
        . "<tr>";
 
@@ -99,6 +100,8 @@ function getParticipantByEvent($eventId){
   $name = $details["name"];
   $org = $details["org"];
   $email = $allEmails[$id];
+
+  $feeAmount = getParticipantFeeAmount($id,$eventId);
   
   $statusId = getParticipantStatusId($id,$eventId);
   $statusName = $status[$statusId];
@@ -110,6 +113,7 @@ function getParticipantByEvent($eventId){
         . "<td>$email</td>"
         . "<td align='center'>$statusName</td>"
         . "<td align='center'><input type='checkbox' name='contactIds[]' value='$id'></td>"
+        . "<td align='center'>$feeAmount</td>"
         . "<td align='center'><input type='checkbox' name='contactIds2[]' value='$id'></td>"
         . "</tr>";
   }
