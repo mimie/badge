@@ -5,5 +5,10 @@
   include 'weberp_functions.php';
 
   $eventId = $_GET["eventId"];
+
+  $displayEventHeader = displayEventHeader($eventId);
+  echo $displayEventHeader;
+  $displayParticipants = getParticipantByEvent($eventId);
+  echo $displayParticipants;
   
 ?>
