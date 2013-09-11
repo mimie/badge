@@ -28,4 +28,7 @@
   $eventHeader = displayEventHeader("139");
   echo $eventHeader;
 
+  $feeAmount = getParticipantFeeAmount("7831","139");
+  var_dump($feeAmount);
+
 ?>
