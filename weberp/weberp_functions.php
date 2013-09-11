@@ -188,5 +188,18 @@ function displayEventHeader($eventId){
   return $html;
 }
 
+function getParticipantFeeAmount($contactId,$eventId){
 
+  $contactId = mysql_real_escape_string($contactId);
+  $eventId = mysql_real_escape_string($eventId);
+
+  $sql = "SELECT fee_amount FROM civicrm_participant\n"
+       . "WHERE contact_id ='{$contactId}' AND event_id = '{$eventId}'";
+  $result = mysql_query($sql) or die(mysql_error());
+
+  $row = mysql_fetch_assoc($result);
+  $feeAmount = $row["fee_amount"];
+
+  return $feeAmount;
+}
 ?>
