@@ -18,7 +18,7 @@ function getEventByDate($startDate,$endDate){
 function displayEvents($eventIds){
 
   $allEvents = getAllEvents();
-  $html = "<table>"
+  $html = "<table border='1' align='center'>"
         . "<tr>"
         . "<th>Event Title</th>"
         . "<th>Event Date</th>"
@@ -34,7 +34,7 @@ function displayEvents($eventIds){
     $html = $html."<tr>"
           ."<td>$title</td>"
           ."<td>".formatDate($date)."</td>"
-          ."<td><a href='participantListing.php?eventId=".$id."'>Participants</a></td>"
+          ."<td align='center'><a href='participantListing.php?eventId=".$id."'>Participants</a></td>"
           ."</tr>";
 
   }
