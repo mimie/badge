@@ -83,7 +83,7 @@ function getParticipantByEvent($eventId){
  $status = getParticipantStatusType();
  
 
- $html = "<table border='1'>"
+ $html = "<table border='1' align='center'>"
        . "<tr>"
        . "<th>Participant Name</th>"
        . "<th>Organization Name</th>"
@@ -185,8 +185,8 @@ function statusTypeSelectForm($statusId){
 function displayEventHeader($eventId){
 
   $eventName = getEventName($eventId);
-  $html = "<div>"
-        . "List of Participants for $eventName"
+  $html = "<div align='center'>"
+        . "<h3>List of Participants for $eventName</h3>"
         . "</div>";
 
   return $html;
