@@ -21,6 +21,7 @@
   </script>
 </head>
 <body>
+<div align='center'>
 <form name="dateSelector" method='post'>
 <p>From: <input type="text" id="datepickerStart" name="startDate"/>
    To: <input type="text" id="datepickerEnd" name="endDate"/>
@@ -35,6 +36,7 @@
   <input type="submit" value="View All Events" name ="viewAll">
 </form> 
 </p>
+</div>
 <?php
   if($_POST["viewEvents"]){
   $startDate = $_POST["startDate"];
