@@ -83,12 +83,14 @@ function getParticipantByEvent($eventId){
  $status = getParticipantStatusType();
  
 
- $html = "<table>"
+ $html = "<table border='1'>"
        . "<tr>"
        . "<th>Participant Name</th>"
        . "<th>Organization Name</th>"
        . "<th>Email Address</th>"
        . "<th>Participant Status</th>"
+       . "<th>Change Participant Status</th>"
+       . "<th>Post</th>"
        . "<tr>";
 
  foreach($contactIds as $id){
@@ -100,12 +102,15 @@ function getParticipantByEvent($eventId){
   
   $statusId = getParticipantStatusId($id,$eventId);
   $statusName = $status[$statusId];
+  //$statusTypeSelectForm = statusTypeSelectForm($statusId);
 
   $html = $html."<tr>"
         . "<td>$name</td>"
         . "<td>$org</td>"
         . "<td>$email</td>"
-        . "<td>$statusName</td>"
+        . "<td align='center'>$statusName</td>"
+        . "<td align='center'><input type='checkbox' name='contactIds[]' value='$id'></td>"
+        . "<td align='center'><input type='checkbox' name='contactIds2[]' value='$id'></td>"
         . "</tr>";
   }
 
