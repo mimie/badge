@@ -93,7 +93,7 @@ function getParticipantByEvent($eventId){
        . "<th>Participant Status</th>"
        . "<th>Change Participant Status</th>"
        . "<th>Fee Amount</th>"
-       . "<th>Post</th>"
+       . "<th>Check All<input type='checkbox'><input type=submit value='Post'></th>"
        . "<tr>";
 
  foreach($contactIds as $id){
@@ -220,8 +220,44 @@ function participantStatusSelector(){
   foreach($status as $id => $statusName){
    $html = $html."<option value='$id'>$statusName</option>";
   }
-  $html = $html."</SELECT><br>";
+  $html = $html."</SELECT>";
   $html = $html."Check All<input type='checkbox'>";
+
+  return $html;
+}
+
+function filterParticipantForm(){
+
+ $status = getParticipantStatusType();
+
+ $html = "<div>"
+       . "<fieldset>"
+       . "<legend><b>Search Participant</b></legend>"
+       . "<form>"
+       . "<table>"
+       . "<tr>"
+       . "<td><b>Name or Email:</b></td><td><input type='textbox' name='nameEmailTb'><input type='submit' value='SEARCH' name='searchNameEmail'></td>"
+       . "</tr>"
+       . "<tr>"
+       . "<td><b>Organization Name:</b></td><td><input type='textbox' name='orgTb'><input type='submit' value='SEARCH' name='searchOrg'></td>"
+       . "</tr>";
+
+ $html = $html."<tr><td><b>Participant Status:</b></td>"
+       . "<td><SELECT name='statusTypeSelect'>"
+       . "<option value='select'>Select status</option>"
+       . "<option disabled>-------------</option>";
+
+  foreach($status as $id => $statusName){
+    $html = $html."<option value='$id'>$statusName</option>";
+  }
+
+  $html = $html."</SELECT>"
+        . "<td><input type='submit' value='SEARCH'></td>"
+        . "</tr>"
+        . "</table>"
+        . "</form>"
+        . "</fieldset>"
+        . "</div>";
 
   return $html;
 }
