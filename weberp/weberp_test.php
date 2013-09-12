@@ -16,8 +16,8 @@
   /**$displayParticipants = getParticipantByEvent("139");
   echo $displayParticipants;**/
 
-  $displayParticipant2 = getParticipantByEvent("177");
-  echo $displayParticipant2;
+  /*$displayParticipant2 = getParticipantByEvent("177");
+  echo $displayParticipant2;*/
 
   $statusId = getParticipantStatusId("7831","139");
   var_dump($statusId);
@@ -33,5 +33,8 @@
 
   $feeAmount = getParticipantFeeAmount("7831","139");
   var_dump($feeAmount);
+
+  $statusSelector = participantStatusSelector();
+  echo $statusSelector;
 
 ?>
