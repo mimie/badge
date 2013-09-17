@@ -82,8 +82,10 @@ function getParticipantByEvent($eventId){
  $allEmails = getAllEmails();
  $status = getParticipantStatusType();
  $statusSelector = participantStatusSelector();
+ $filterParticipantForm = filterParticipantForm();
 
- $html = "<div align='center' style='padding:6px;'>$statusSelector</div>";
+ $html = $filterParticipantForm;
+ $html = $html."<div align='center' style='padding:6px;'>$statusSelector</div>";
  
  $html = $html."<table border='1' align='center'>"
        . "<tr>"
@@ -226,11 +228,15 @@ function participantStatusSelector(){
   return $html;
 }
 
+/*
+ *form for searching the participant
+ */
 function filterParticipantForm(){
 
  $status = getParticipantStatusType();
 
- $html = "<div>"
+ $html = "<center>"
+       . "<div align='center' style='width:50%;'>"
        . "<fieldset>"
        . "<legend><b>Search Participant</b></legend>"
        . "<form>"
@@ -257,7 +263,8 @@ function filterParticipantForm(){
         . "</table>"
         . "</form>"
         . "</fieldset>"
-        . "</div>";
+        . "</div>"
+        . "</center>";
 
   return $html;
 }
