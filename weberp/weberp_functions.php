@@ -204,6 +204,43 @@ function getContactIdSearchName($eventId,$searchCriteria){
   return $contactIds;
 }
 
+function getContactIdSearchOrg($eventId,$orgName){
+
+  $orgName = mysql_real_escape_string($orgName);
+  $sql = "SELECT organization_name, cc.id AS contactId\n"
+       . "FROM civicrm_participant cp, civicrm_contact cc\n"
+       . "WHERE cp.event_id = '$eventId'\n"
+       . "AND cp.contact_id = cc.id\n"
+       . "AND cc.organization_name LIKE '%{$orgName}%'";
+  $result = mysql_query($sql) or die(mysql_error());
+
+  $contactIds = array();
+
+  while($row = mysql_fetch_assoc($result)){
+
+    $contactIds[] = $row["contactId"];
+  }
+
+  return $contactIds;
+
+}
+
+function getContactIdSearchStatusId($eventId,$statusId){
+
+   $sql = "SELECT contact_id,status_id FROM civicrm_participant\n"                                        . "WHERE status_id = '$statusId'\n"
+        . "AND event_id ='$eventId'";
+
+   $result = mysql_query($sql) or die(mysql_error());
+
+   $contactIds = array();
+
+   while($row = mysql_fetch_assoc($result)){
+     $contactIds[] = $row["contact_id"];
+   }
+
+  return $contactIds;
+}
+
 function getParticipantStatusId($contactId,$eventId){
 
  $contactId = mysql_real_escape_string($contactId);
@@ -333,7 +370,7 @@ function filterParticipantForm(){
   }
 
   $html = $html."</SELECT>"
-        . "<td><input type='submit' value='SEARCH'></td>"
+        . "<input type='submit' value='SEARCH' name='searchStatus'></td>"
         . "</tr>"
         . "</table>"
         . "</form>"
