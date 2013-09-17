@@ -43,7 +43,7 @@
  $contactIds = getContactIdSearch("139","guzman");
  var_dump($contactIds);
 
- $searchParticipantByName = searchedParticipantListbyName($contactIds,"139");
+ $searchParticipantByName = searchedParticipantListByName($contactIds,"139");
  echo $searchParticipantByName;
 
 ?>
