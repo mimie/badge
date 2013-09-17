@@ -37,4 +37,7 @@
   $statusSelector = participantStatusSelector();
   echo $statusSelector;
 
+  $searchParticipantForm = filterParticipantForm();
+  echo $searchParticipantForm;
+
 ?>
