@@ -132,7 +132,7 @@ function getParticipantByEvent($eventId){
 /*
  *display searched participant by name or email
  */
-function searchedParticipantListbyName(array $contactIds,$eventId){
+function searchedParticipantListByName(array $contactIds,$eventId){
 
  $allContacts = getAllContacts();
  $allEmails = getAllEmails();
@@ -315,7 +315,7 @@ function filterParticipantForm(){
        . "<div align='center' style='width:50%;'>"
        . "<fieldset>"
        . "<legend><b>Search Participant</b></legend>"
-       . "<form>"
+       . "<form method='post' name='searchFilter'>"
        . "<table>"
        . "<tr>"
        . "<td><b>Name or Email:</b></td><td><input type='textbox' name='nameEmailTb'><input type='submit' value='SEARCH' name='searchNameEmail'></td>"
