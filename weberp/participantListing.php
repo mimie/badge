@@ -16,7 +16,7 @@
   if(isset($_POST["searchNameEmail"])){
     
     $searchNameEmail = $_POST["nameEmailTb"];
-    $contactIds = getContactIdSearch($eventId,$searchNameEmail);
+    $contactIds = getContactIdSearchName($eventId,$searchNameEmail);
     $searchParticipantByName = searchedParticipantListByName($contactIds,$eventId);
     echo $searchParticipantByName;
 
