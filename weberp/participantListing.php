@@ -22,6 +22,21 @@
 
   }
 
+  elseif(isset($_POST["searchOrg"])){
+
+    $searchOrg = $_POST["orgTb"];
+    $contactIds = getContactIdSearchOrg($eventId,$searchOrg);
+    $searchParticipantByName = searchedParticipantListByName($contactIds,$eventId);
+    echo $searchParticipantByName;
+  }
+
+  elseif(isset($_POST["searchStatus"])){
+    $statusId = $_POST["statusTypeSelect"];
+    $contactIds = getContactIdSearchStatusId($eventId,$statusId);
+    $searchParticipantByName = searchedParticipantListByName($contactIds,$eventId);
+    echo $searchParticipantByName;
+  }
+
   else{
   
     $displayParticipants = getParticipantByEvent($eventId);
