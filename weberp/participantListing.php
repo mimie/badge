@@ -12,7 +12,20 @@
   $filterParticipantForm = filterParticipantForm();
   echo $filterParticipantForm;
 
-  $displayParticipants = getParticipantByEvent($eventId);
-  echo $displayParticipants;
+
+  if(isset($_POST["searchNameEmail"])){
+    
+    $searchNameEmail = $_POST["nameEmailTb"];
+    $contactIds = getContactIdSearch($eventId,$searchNameEmail);
+    $searchParticipantByName = searchedParticipantListByName($contactIds,$eventId);
+    echo $searchParticipantByName;
+
+  }
+
+  else{
+  
+    $displayParticipants = getParticipantByEvent($eventId);
+    echo $displayParticipants;
+  }
   
 ?>
