@@ -40,10 +40,16 @@
   $searchParticipantForm = filterParticipantForm();
   echo $searchParticipantForm;
 
- $contactIds = getContactIdSearch("139","guzman");
+ $contactIds = getContactIdSearchName("139","guzman");
  var_dump($contactIds);
 
  $searchParticipantByName = searchedParticipantListByName($contactIds,"139");
  echo $searchParticipantByName;
+
+ $searchOrg = getContactIdSearchOrg("139","Isla Lipana");
+ var_dump($searchOrg);
+
+ $searchStatus = getContactIdSearchStatusId("139","1");
+ var_dump($searchStatus);
 
 ?>
