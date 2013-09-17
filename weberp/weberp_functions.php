@@ -129,6 +129,82 @@ function getParticipantByEvent($eventId){
  
 }
 
+/*
+ *display searched participant by name or email
+ */
+function searchedParticipantListbyName(array $contactIds,$eventId){
+
+ $allContacts = getAllContacts();
+ $allEmails = getAllEmails();
+ $status = getParticipantStatusType();
+ $statusSelector = participantStatusSelector();
+
+ $html = "<div align='center' style='padding:6px;'>$statusSelector</div>";
+ 
+ $html = $html."<table border='1' align='center'>"
+       . "<tr>"
+       . "<th>Participant Name</th>"
+       . "<th>Organization Name</th>"
+       . "<th>Email Address</th>"
+       . "<th>Participant Status</th>"
+       . "<th>Change Participant Status</th>"
+       . "<th>Fee Amount</th>"
+       . "<th>Check All<input type='checkbox'><input type=submit value='Post'></th>"
+       . "<tr>";
+
+ foreach($contactIds as $id){
+
+  $details = $allContacts[$id];
+  $name = $details["name"];
+  $org = $details["org"];
+  $email = $allEmails[$id];
+
+  $feeAmount = getParticipantFeeAmount($id,$eventId);
+  
+  $statusId = getParticipantStatusId($id,$eventId);
+  $statusName = $status[$statusId];
+  //$statusTypeSelectForm = statusTypeSelectForm($statusId);
+
+  $html = $html."<tr>"
+        . "<td>$name</td>"
+        . "<td>$org</td>"
+        . "<td>$email</td>"
+        . "<td align='center'>$statusName</td>"
+        . "<td align='center'><input type='checkbox' name='contactIds[]' value='$id'></td>"
+        . "<td align='center'>$feeAmount</td>"
+        . "<td align='center'><input type='checkbox' name='contactIds2[]' value='$id'></td>"
+        . "</tr>";
+  }
+
+  $html = $html."</table>";
+
+  return $html;
+
+}
+
+function getContactIdSearch($eventId,$searchCriteria){
+
+  $searchCriteria = mysql_real_escape_string($searchCriteria);
+
+  $sql = "SELECT cc.id as contactId FROM civicrm_participant cp, civicrm_email cem, civicrm_contact cc\n"
+      . "WHERE cp.event_id='$eventId'\n"
+      . "AND cp.contact_id = cc.id\n"
+      . "AND cem.contact_id = cc.id\n"
+      . "AND (cc.display_name LIKE '%{$searchCriteria}%' OR cem.email LIKE '%{$searchCriteria}%')";
+
+  $result = mysql_query($sql) or die(mysql_error());
+
+  $contactIds = array();
+
+  while($row = mysql_fetch_assoc($result)){
+
+    $contactIds[] = $row["contactId"];
+  }
+
+  return $contactIds;
+}
+
+
 function getParticipantStatusId($contactId,$eventId){
 
  $contactId = mysql_real_escape_string($contactId);
