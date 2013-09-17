@@ -8,6 +8,10 @@
 
   $displayEventHeader = displayEventHeader($eventId);
   echo $displayEventHeader;
+
+  $filterParticipantForm = filterParticipantForm();
+  echo $filterParticipantForm;
+
   $displayParticipants = getParticipantByEvent($eventId);
   echo $displayParticipants;
   

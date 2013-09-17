@@ -82,10 +82,10 @@ function getParticipantByEvent($eventId){
  $allEmails = getAllEmails();
  $status = getParticipantStatusType();
  $statusSelector = participantStatusSelector();
- $filterParticipantForm = filterParticipantForm();
+ //$filterParticipantForm = filterParticipantForm();
 
- $html = $filterParticipantForm;
- $html = $html."<div align='center' style='padding:6px;'>$statusSelector</div>";
+ //$html = $filterParticipantForm;
+ $html = "<div align='center' style='padding:6px;'>$statusSelector</div>";
  
  $html = $html."<table border='1' align='center'>"
        . "<tr>"
