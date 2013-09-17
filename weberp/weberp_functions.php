@@ -182,7 +182,7 @@ function searchedParticipantListByName(array $contactIds,$eventId){
 
 }
 
-function getContactIdSearch($eventId,$searchCriteria){
+function getContactIdSearchName($eventId,$searchCriteria){
 
   $searchCriteria = mysql_real_escape_string($searchCriteria);
 
@@ -203,7 +203,6 @@ function getContactIdSearch($eventId,$searchCriteria){
 
   return $contactIds;
 }
-
 
 function getParticipantStatusId($contactId,$eventId){
 
