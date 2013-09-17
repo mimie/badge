@@ -40,4 +40,10 @@
   $searchParticipantForm = filterParticipantForm();
   echo $searchParticipantForm;
 
+ $contactIds = getContactIdSearch("139","guzman");
+ var_dump($contactIds);
+
+ $searchParticipantByName = searchedParticipantListbyName($contactIds,"139");
+ echo $searchParticipantByName;
+
 ?>
