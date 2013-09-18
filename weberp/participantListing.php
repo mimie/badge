@@ -1,3 +1,33 @@
+<html>
+<head>
+<title>Participant Listing</title>
+<script type="text/javascript">
+  var checked=false;
+  var formname='';
+
+function checkedAll(formname)
+{
+  var values= document.getElementById(formname);
+ 
+  if (checked==false)
+  {
+    checked=true;
+  }
+ 
+  else
+  {
+    checked = false;
+  }
+
+ for (var i=0; i < values.elements.length; i++)
+ {
+   values.elements[i].checked=checked;
+ }
+
+}
+</script>
+</head>
+<body>
 <?php
 
   include '../dbcon.php';
@@ -44,3 +74,5 @@
   }
   
 ?>
+</body>
+</html>
