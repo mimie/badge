@@ -85,7 +85,8 @@ function getParticipantByEvent($eventId){
  //$filterParticipantForm = filterParticipantForm();
 
  //$html = $filterParticipantForm;
- $html = "<div align='center' style='padding:6px;'>$statusSelector</div>";
+ $html = "<form id='participants' method='post'>"
+       . "<div align='center' style='padding:6px;'>$statusSelector</div>";
  
  $html = $html."<table border='1' align='center'>"
        . "<tr>"
@@ -95,8 +96,7 @@ function getParticipantByEvent($eventId){
        . "<th>Participant Status</th>"
        . "<th>Change Participant Status</th>"
        . "<th>Fee Amount</th>"
-       . "<form id='participants' method='post'>"
-       . "<th>Check All<input type='checkbox' name='checkAll' onclick='checkedAll(\"participants\");'><input type=submit value='Post'></th>"
+       . "<th>Post</th>"
        . "<tr>";
 
  foreach($contactIds as $id){
@@ -119,7 +119,7 @@ function getParticipantByEvent($eventId){
         . "<td align='center'>$statusName</td>"
         . "<td align='center'><input type='checkbox' name='contactIds[]' value='$id'></td>"
         . "<td align='center'>$feeAmount</td>"
-        . "<td align='center'><input type='checkbox' name='contactIds2[]' value='$id'></td>"
+        . "<td align='center'><input type='submit' value='Post'></td>"
         . "</tr>";
   }
 
@@ -337,7 +337,7 @@ function participantStatusSelector(){
    $html = $html."<option value='$id'>$statusName</option>";
   }
   $html = $html."</SELECT>";
-  $html = $html."Check All<input type='checkbox'>";
+  $html = $html."Check All<input type='checkbox' name='checkall' onclick='checkedAll(\"participants\");'>";
 
   return $html;
 }
