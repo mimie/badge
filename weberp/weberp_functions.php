@@ -95,7 +95,8 @@ function getParticipantByEvent($eventId){
        . "<th>Participant Status</th>"
        . "<th>Change Participant Status</th>"
        . "<th>Fee Amount</th>"
-       . "<th>Check All<input type='checkbox'><input type=submit value='Post'></th>"
+       . "<form id='participants' method='post'>"
+       . "<th>Check All<input type='checkbox' name='checkAll' onclick='checkedAll(\"participants\");'><input type=submit value='Post'></th>"
        . "<tr>";
 
  foreach($contactIds as $id){
@@ -122,7 +123,7 @@ function getParticipantByEvent($eventId){
         . "</tr>";
   }
 
-  $html = $html."</table>";
+  $html = $html."</form></table>";
 
   return $html;
 
@@ -227,7 +228,8 @@ function getContactIdSearchOrg($eventId,$orgName){
 
 function getContactIdSearchStatusId($eventId,$statusId){
 
-   $sql = "SELECT contact_id,status_id FROM civicrm_participant\n"                                        . "WHERE status_id = '$statusId'\n"
+   $sql = "SELECT contact_id,status_id FROM civicrm_participant\n"                                       
+        . "WHERE status_id = '$statusId'\n"
         . "AND event_id ='$eventId'";
 
    $result = mysql_query($sql) or die(mysql_error());
