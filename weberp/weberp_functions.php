@@ -338,6 +338,7 @@ function participantStatusSelector(){
   }
   $html = $html."</SELECT>";
   $html = $html."Check All<input type='checkbox' name='checkall' onclick='checkedAll(\"participants\");'>";
+  $html = $html."<input type='submit' value='UPDATE' name='updateStatus'>";
 
   return $html;
 }
