@@ -58,4 +58,13 @@
  $eventTypesFilterForm = eventTypesFilterForm();
  echo $eventTypesFilterForm;
 
+ $eventIds = searchEventType("1");
+ var_dump($eventIds);
+
+ $eventIds2 = searchEventType("2");
+ var_dump($eventIds2);
+
+ $eventIds3 = searchEventType("3");
+ var_dump($eventIds3);
+
 ?>

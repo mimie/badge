@@ -409,9 +409,10 @@ function eventTypesFilterForm(){
 
   $allEventTypes = getAllEventTypes();
 
-  $html = "<SELECT name='eventType'>"
+  $html = "<form name='eventTypes' method='post'>"
+        . "<SELECT name='eventType'>"
         . "<option value='select'>Select event type</option>"
-        . "<option value=''>-----------------</option>";
+        . "<option value='' disabled>-----------------</option>";
 
   foreach($allEventTypes as $eventTypeId => $eventTypeName){
 
@@ -419,9 +420,25 @@ function eventTypesFilterForm(){
   }
 
   $html = $html."</SELECT>";
+  $html = $html."<input type='submit' value='Search Event Type' name='searchEventType'>";
+  $html = $html."</form>";
 
   return $html;
 
+}
 
+function searchEventType($eventTypeId){
+
+  $sql = "SELECT id FROM civicrm_event\n"
+       . "WHERE event_type_id='$eventTypeId'";
+  $result = mysql_query($sql) or die(mysql_error());
+
+  $eventIds = array();
+
+  while($row = mysql_fetch_assoc($result)){
+    $eventIds[] = $row["id"];
+  }
+
+  return $eventIds;
 }
 ?>
