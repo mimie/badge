@@ -441,4 +441,19 @@ function searchEventType($eventTypeId){
 
   return $eventIds;
 }
+
+function updateParticipantStatus($contactId,$eventId,$statusId){
+
+  $contactId = mysql_real_escape_string($contactId);
+  $eventId = mysql_real_escape_string($eventId);
+  $statusId = mysql_real_escape_string($statusId);
+
+  $sql = "UPDATE civicrm_participant\n"
+       . "SET status_id = '{$statusId}'\n"
+       . "WHERE event_id = '{$eventId}'\n"
+       . "AND contact_id = '{$contactId}'";
+
+  $result = mysql_query($sql) or die(mysql_error());
+}
 ?>
+

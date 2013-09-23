@@ -67,4 +67,6 @@
  $eventIds3 = searchEventType("3");
  var_dump($eventIds3);
 
+ updateParticipantStatus("5681","16","2");
+
 ?>
