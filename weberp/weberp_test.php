@@ -52,4 +52,7 @@
  $searchStatus = getContactIdSearchStatusId("139","1");
  var_dump($searchStatus);
 
+ $allEventTypes = getAllEventTypes();
+ var_dump($allEventTypes);
+
 ?>

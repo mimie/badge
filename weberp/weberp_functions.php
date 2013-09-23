@@ -383,4 +383,23 @@ function filterParticipantForm(){
 
   return $html;
 }
+
+function getAllEventTypes(){
+
+ $sql = "SELECT label,value FROM civicrm_option_value\n"
+      . "WHERE option_group_id='14'";
+ $result = mysql_query($sql) or die(mysql_error());
+
+ $eventTypes = array();
+
+ while($row = mysql_fetch_assoc($result)){
+    $eventTypeId = $row["value"];
+    $eventTypeName = $row["label"];
+
+    $eventTypes[$eventTypeId] = $eventTypeName;
+ }
+
+ return $eventTypes;
+}
+
 ?>
