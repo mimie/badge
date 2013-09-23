@@ -67,6 +67,26 @@ function checkedAll(formname)
     echo $searchParticipantByName;
   }
 
+  elseif(isset($_POST["updateStatus"])){
+    $contactIds = $_POST["contactIds"];
+    $statusId = $_POST["statusType"];
+    
+    foreach($contactIds as $contactId){
+      updateParticipantStatus($contactId,$eventId,$statusId);
+    }
+
+    if($searchParticipantByName){
+      echo $searchParticipantByName;
+    }
+
+    else{
+      
+    $displayParticipants = getParticipantByEvent($eventId);
+    echo $displayParticipants;
+    }
+
+  }
+
   else{
   
     $displayParticipants = getParticipantByEvent($eventId);
