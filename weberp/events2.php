@@ -21,10 +21,13 @@
   </script>
 </head>
 <body>
-<div align='center'>
+<center>
+<div align='center' style='width:50%;'>
+<fieldset>
+<legend><b>Search Event</b></legend>
 <form name="dateSelector" method='post'>
-<p>From: <input type="text" id="datepickerStart" name="startDate"/>
-   To: <input type="text" id="datepickerEnd" name="endDate"/>
+<p>From: <input type="text" id="datepickerStart" name="startDate" required>
+   To: <input type="text" id="datepickerEnd" name="endDate" required>
    <input type="submit" value="View Events" name="viewEvents">
 
 </p>
@@ -36,8 +39,17 @@
   <input type="submit" value="View All Events" name ="viewAll">
 </form> 
 </p>
-</div>
+<p>
 <?php
+  $eventTypesFilterForm = eventTypesFilterForm();
+  echo $eventTypesFilterForm;
+?>
+</p>
+</fieldset>
+</center>
+</div><br><br>
+<?php
+
   if($_POST["viewEvents"]){
   $startDate = $_POST["startDate"];
   $endDate = $_POST["endDate"];
@@ -50,13 +62,21 @@
    echo $eventsDisplay;
   }
 
-   elseif($_POST["searchEvent"]){
+  elseif($_POST["searchEvent"]){
 
     $eventSearch = $_POST["eventName"];
     $eventIds = searchEventName($eventSearch);
     $eventsDisplay = displayEvents($eventIds);
     echo $eventsDisplay;
 
+  }
+
+  elseif($_POST["searchEventType"]){
+   
+    $eventTypeId = $_POST["eventType"];
+    $eventIds = searchEventType($eventTypeId);
+    $eventsDisplay = displayEvents($eventIds);
+    echo $eventsDisplay;
   }
 
   elseif($_POST["viewAll"] || !$_POST["viewEvents"] || !$_POST["searchEvent"]){
