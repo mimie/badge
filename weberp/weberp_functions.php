@@ -384,6 +384,9 @@ function filterParticipantForm(){
   return $html;
 }
 
+/*
+ *option_group_id = 14 FROM civicrm_option_group table
+ */
 function getAllEventTypes(){
 
  $sql = "SELECT label,value FROM civicrm_option_value\n"
@@ -402,4 +405,23 @@ function getAllEventTypes(){
  return $eventTypes;
 }
 
+function eventTypesFilterForm(){
+
+  $allEventTypes = getAllEventTypes();
+
+  $html = "<SELECT name='eventType'>"
+        . "<option value='select'>Select event type</option>"
+        . "<option value=''>-----------------</option>";
+
+  foreach($allEventTypes as $eventTypeId => $eventTypeName){
+
+    $html = $html."<option value='$eventTypeId'>$eventTypeName</option>";
+  }
+
+  $html = $html."</SELECT>";
+
+  return $html;
+
+
+}
 ?>

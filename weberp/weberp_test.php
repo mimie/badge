@@ -55,4 +55,7 @@
  $allEventTypes = getAllEventTypes();
  var_dump($allEventTypes);
 
+ $eventTypesFilterForm = eventTypesFilterForm();
+ echo $eventTypesFilterForm;
+
 ?>
