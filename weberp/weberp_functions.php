@@ -140,7 +140,8 @@ function searchedParticipantListByName(array $contactIds,$eventId){
  $status = getParticipantStatusType();
  $statusSelector = participantStatusSelector();
 
- $html = "<div align='center' style='padding:6px;'>$statusSelector</div>";
+ $html = "<form id='participants' method='post'>"
+       . "<div align='center' style='padding:6px;'>$statusSelector</div>";
  
  $html = $html."<table border='1' align='center'>"
        . "<tr>"
@@ -150,7 +151,7 @@ function searchedParticipantListByName(array $contactIds,$eventId){
        . "<th>Participant Status</th>"
        . "<th>Change Participant Status</th>"
        . "<th>Fee Amount</th>"
-       . "<th>Check All<input type='checkbox'><input type=submit value='Post'></th>"
+       . "<th>Post</th>"
        . "<tr>";
 
  foreach($contactIds as $id){
@@ -173,11 +174,11 @@ function searchedParticipantListByName(array $contactIds,$eventId){
         . "<td align='center'>$statusName</td>"
         . "<td align='center'><input type='checkbox' name='contactIds[]' value='$id'></td>"
         . "<td align='center'>$feeAmount</td>"
-        . "<td align='center'><input type='checkbox' name='contactIds2[]' value='$id'></td>"
+        . "<td align='center'><input type='submit' value='Post'></td>"
         . "</tr>";
   }
 
-  $html = $html."</table>";
+  $html = $html."</form></table>";
 
   return $html;
 
