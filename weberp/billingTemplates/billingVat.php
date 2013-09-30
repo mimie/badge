@@ -83,7 +83,7 @@
          <td></td>
          <td width="485px"><font style="font-size:13px">Address</font></td>
          <td align="right" width="165px" style="border-right:2px solid black"><font style="font-size:13px"><b>BILLING DATE</b></font></td>
-         <td width="195.78px"><font style="font-size:19px"><font style="font-size:13px">September 25,2013</font></font></td>
+         <td width="195.78px"><font style="font-size:13px">September 25,2013</font></td>
       </tr>
       <tr>
          <td></td>
